@@ -156,9 +156,11 @@
                     </table>
                   </telerik:RadCard>     
                 </div>
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowFilteringByColumn= "true" CssClass="auto-style1">
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowMultiRowSelection="true" AllowFilteringByColumn= "true" CssClass="auto-style1">
+                      <ClientSettings Selecting-AllowRowSelect="true">   </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
+                              <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" />   
                               <telerik:GridBoundColumn DataField="PrinterName" FilterControlAltText="Filter PrinterName column" HeaderText="PrinterName" SortExpression="PrinterName" UniqueName="PrinterName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FolderToMonitor" FilterControlAltText="Filter FolderToMonitor column" HeaderText="FolderToMonitor" SortExpression="FolderToMonitor" UniqueName="FolderToMonitor">
@@ -171,9 +173,24 @@
                               </telerik:GridCheckBoxColumn>
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="Edit" DataType="System.DateTime"  HeaderText="Edit" SortExpression="Edit" UniqueName="Edit" AllowFiltering="false" ShowFilterIcon="True">
-                              </telerik:GridBoundColumn>                      
-                           
+                             
+                   <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
+                      ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
+                      <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
+                      <ItemStyle CssClass="ButtonColumn" />
+                  </telerik:GridButtonColumn> 
+
+                    <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
+                      ImageUrl="Images/16xpDelete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
+                      <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
+                      <ItemStyle CssClass="ButtonColumn" />
+                  </telerik:GridButtonColumn>
+
+                   <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
+                      ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
+                      <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
+                      <ItemStyle CssClass="ButtonColumn" />
+                  </telerik:GridButtonColumn>
 
                           </Columns>
                       </MasterTableView>

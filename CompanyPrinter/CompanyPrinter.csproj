@@ -75,13 +75,14 @@
   <ItemGroup>
     <Content Include="Designation.aspx" />
     <Content Include="Images\16xpDelete.png" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\edit.png" />
     <Content Include="Login.aspx" />
     <Content Include="Printers.aspx" />
     <Content Include="UpdateUser.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
     <Content Include="CreateUser.aspx" />
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Designation.aspx.cs">
@@ -126,13 +127,6 @@
     </Compile>
     <Compile Include="Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
