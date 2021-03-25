@@ -23,7 +23,6 @@ namespace CompanyPrinter
         }
         protected void SaveButton(object sender, EventArgs e)
         {
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('ValidateUser')", true);
 
             BussinessObject.Printer printer = new BussinessObject.Printer();
 
@@ -31,14 +30,26 @@ namespace CompanyPrinter
             printer.FolderToMonitor = txtfoldertomonitor.Text;
             printer.OutputType = txtoutputtype.Text;
             printer.FileOutput = txtfileoutput.Text;
-            printer.PrinterMakeID = 1;
-            printer.Active = 1;
+            printer.PrinterMakeID = Convert.ToInt32(cbprintermake.SelectedValue);
+            //printer.Active = 1;
             printer.CreatedDate = DateTime.Now;
 
-            DataAccess.UserDA userDA = new DataAccess.UserDA();
+            if (radactive.Checked)
+            {
+                printer.Active = 1;
+            }
+            else
+            {
+                printer.Active = 0;
+            }
 
-            userDA.AddPrinter(printer);
+            Bussinesslogic.UserBL userBL = new Bussinesslogic.UserBL();
 
+            int result = userBL.SavePrinter(printer);
+            if (result > 0)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Printer has been added successfully')", true);
+            }
         }
     }
 }

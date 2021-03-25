@@ -48,7 +48,20 @@ namespace Bussinesslogic
                 throw;
             }
         }
-   }
+
+        public int SavePrinter(Printer printer)
+        {
+            try
+            {
+                UserDA userDA = new UserDA();
+                return userDA.AddPrinter(printer);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+    }
         
     
 }

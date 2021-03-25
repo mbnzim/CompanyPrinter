@@ -209,6 +209,13 @@
                 <asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control"  required/>
                 <br />
 
+                 <label for="txtprinterMake"> Printer Make</label>
+                  <telerik:RadComboBox ID="cbprintermake" runat="server" DataSourceID="SqlDataSource3" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="200px"></telerik:RadComboBox>
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
+                <br />
+                <br />
+                <asp:RadioButton ID="radactive" runat="server"  text="Active" GroupName="rd"/>
+                <asp:RadioButton ID="radinactive" runat="server"  text="Inactive" GroupName="rd"/>
 
                 <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
                     <strong>Error!</strong>
@@ -222,41 +229,7 @@
         </div>
     </div>
 </div>
-<%--      <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;</button>
-                <h4 class="modal-title" id="ModalTitle">
-                    Login</h4>
-            </div>
-            <div class="modal-body">
-                <label for="txtUsername">
-                    Username</label>
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username"
-                    required />
-                <br />
-                <label for="txtPassword">
-                    Password</label>
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
-                    placeholder="Enter Username" required />
-                <div class="checkbox">
-                    <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
-                </div>
-                <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
-                    <strong>Error!</strong>
-                    <asp:Label ID="lblMessage" runat="server" />
-                </div>
-            </div>
-            <div class="modal-footer">
-                <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>--%>
+
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
   
     </form>
