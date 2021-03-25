@@ -10,19 +10,7 @@ namespace Bussinesslogic
 {
     public class UserBL
     {
-        public int SaveDesignation(Designation objUserBL)  
-        {
-            try
-            {
-                UserDA objUserda = new UserDA();
-                return objUserda.AddDesignation(objUserBL);  
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
+        //===============================Users==============================
         public int UserRegistration(CreateUser reg)
         {
             try
@@ -30,25 +18,40 @@ namespace Bussinesslogic
                 UserDA userDA = new UserDA();
                 return userDA.AddNewUser(reg);
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
+
         public int UserUpdate(String username, CreateUser registration)
         {
             try
             {
                 UserDA objUserda = new UserDA();
                 CreateUser reg = new CreateUser();
-                return objUserda.UpdateUser(username,registration);
+                return objUserda.UpdateUser(username, registration);
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
+            }
+        }
+        //===============================Designations========================
+        public int SaveDesignation(Designation designation)
+        {
+            try
+            {
+                UserDA objUserda = new UserDA();
+                return objUserda.AddDesignation(designation);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 
+        //===============================Printers==============================
         public int SavePrinter(Printer printer)
         {
             try
@@ -56,12 +59,15 @@ namespace Bussinesslogic
                 UserDA userDA = new UserDA();
                 return userDA.AddPrinter(printer);
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
+
+        //===============================PrinterMake==============================
+
+        //===============================Documents==============================
+
     }
-        
-    
 }

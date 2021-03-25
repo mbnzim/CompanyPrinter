@@ -31,7 +31,6 @@ namespace CompanyPrinter
             printer.OutputType = txtoutputtype.Text;
             printer.FileOutput = txtfileoutput.Text;
             printer.PrinterMakeID = Convert.ToInt32(cbprintermake.SelectedValue);
-            //printer.Active = 1;
             printer.CreatedDate = DateTime.Now;
 
             if (radactive.Checked)

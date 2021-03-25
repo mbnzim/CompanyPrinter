@@ -37,24 +37,31 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         public void displayAllUsers(GridView gridview)
         {
-            con.Open();
-            string displayQuery = "select * from Users";
-            SqlCommand cmd = new SqlCommand(displayQuery, con);
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            gridview.DataSource = dt;
-            gridview.DataBind();
-            con.Close();
+            try
+            {
+                con.Open();
+                string displayQuery = "select * from Users";
+                SqlCommand cmd = new SqlCommand(displayQuery, con);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                gridview.DataSource = dt;
+                gridview.DataBind();
+                con.Close();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+          
         }
 
         public int UpdateUser(String username, CreateUser registration)
@@ -78,21 +85,28 @@ namespace DataAccess
                 //Response.Write("alert('DATA UPDATED')");
                 return Result;
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
 
         public void deleteUser(String Username)
         {
-            con.Open();
-            string deleteQuery = "delete from Users Where UserName='" + Username + "'";
-            SqlCommand cmd = new SqlCommand(deleteQuery, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                con.Open();
+                string deleteQuery = "delete from Users Where UserName='" + Username + "'";
+                SqlCommand cmd = new SqlCommand(deleteQuery, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
+     
 
         //======================================================Designations==============================================
         public int AddDesignation(Designation ObjDesignation) 
@@ -109,24 +123,31 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
         public void displayDesignation(GridView gridview )
         {
-            con.Open();
-            string displayQuery = "select * from Designations";
-            SqlCommand cmd = new SqlCommand(displayQuery, con);
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            gridview.DataSource = dt;
-            gridview.DataBind();
-            con.Close();
+            try
+            {
+                con.Open();
+                string displayQuery = "select * from Designations";
+                SqlCommand cmd = new SqlCommand(displayQuery, con);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                gridview.DataSource = dt;
+                gridview.DataBind();
+                con.Close();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+   
         }
 
 
@@ -140,9 +161,9 @@ namespace DataAccess
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
 
         }
@@ -167,9 +188,9 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
        

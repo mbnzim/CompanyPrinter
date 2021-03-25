@@ -109,7 +109,7 @@
         <div>
             <table style="width: 63%; margin-top:0" >
                 <tr>
-                    <td colspan="2" style="background-color: #37474F; height: 48px;margin-top:0 ;  padding-top: 0;" align="center">
+                    <td colspan="2" style="background-color: #37474F; height: 52px;margin-top:0 ;  padding-top: 0;" align="center">
                         <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" ForeColor="White"></telerik:RadLabel>
                         
                     </td>
