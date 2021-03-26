@@ -18,14 +18,18 @@
     }
 
     .sidebar {
+      margin-top:0;
       margin-left:auto;
       margin-right:auto;
       padding: 0;
       width: 200px;
       background-color: #f1f1f1;
       position: fixed;
-      height: 40%;
+      height: 60%;
       overflow: auto;
+      margin-top:0;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .sidebar a {
@@ -36,12 +40,12 @@
     }
  
     .sidebar a.active {
-      background-color: #37474F;
+      background-color: #90A4AE;
       color: white;
     }
 
     .sidebar a:hover:not(.active) {
-      background-color: #555;
+      background-color: #263238;
       color: white;
     }
 
@@ -82,39 +86,61 @@
     .auto-style1 {
         margin-left: 22px;
     }
+    .navbar{
+        width:85%;
+        background-color: #37474F;
+        height: 52px;
+        margin-top:0 ;
+        margin-bottom:0;
+        padding-bottom:0;
+        padding-top: 0;
+        border-radius:0
+        
+    }
+    form1{
+        margin-left:auto;
+        margin-right:auto
+    }
 
+    .container{
+        margin-left:200px;
+    }
+    .title1{
+        color:white;
+        text-align:center;
+        padding-bottom:60px
+    }
 </style>
 
 </head>
 <body>
-  <div class="sidebar">
-  <a class="active" href="#printers">Printers</a>
-  <a href="#users">Users</a>
-  <a href="#designation">Designations</a>
-  <a href="#logout">Logout</a>
-  </div>
 
 
 
-  <form id="form1" runat="server">
- <script type="text/javascript">
-     $(function () {
-         $("#btnShowAddPrinter").click(function () {
-             $('#LoginModal').modal('show');
+
+ <form id="form1" runat="server">
+     <script type="text/javascript">
+         $(function () {
+             $("#btnShowAddPrinter").click(function () {
+                 $('#LoginModal').modal('show');
+             });
          });
-     });
- </script>
+     </script>
      
     <div style="margin-top:0; padding-left: 200px; padding-right: 50px; overflow: auto;">
         <div>
-            <table style="width: 63%; margin-top:0" >
-                <tr>
-                    <td colspan="2" style="background-color: #37474F; height: 52px;margin-top:0 ;  padding-top: 0;" align="center">
-                        <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" ForeColor="White"></telerik:RadLabel>
-                        
-                    </td>
-                </tr>
-               </table>
+            <div class="navbar">  
+              <h3 class="title1">Pinters</h3>                                  
+           </div>
+
+          <div class="sidebar">
+              <a class="active" href="#printers">Printers</a>
+              <a href="#users">Users</a>
+              <a href="#designation">Designations</a>
+              <a href="#logout">Logout</a>
+              </div>
+
+            <div class="container">
             <div class="card">      
                   <telerik:RadCard ID="RadCard1" runat="server" Width="500px" >
                     <table>
@@ -156,7 +182,7 @@
                     </table>
                   </telerik:RadCard>     
                 </div>
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowMultiRowSelection="true" AllowFilteringByColumn= "true" CssClass="auto-style1">
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="true" AllowMultiRowSelection="true" AllowFilteringByColumn= "true" CssClass="auto-style1">
                       <ClientSettings Selecting-AllowRowSelect="true">   </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
@@ -181,7 +207,7 @@
                   </telerik:GridButtonColumn> 
 
                     <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
-                      ImageUrl="Images/16xpDelete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
+                      ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
                       <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                       <ItemStyle CssClass="ButtonColumn" />
                   </telerik:GridButtonColumn>
@@ -241,14 +267,14 @@
             </div>
             <div class="modal-footer">
                 <asp:Button ID="btnSave" Text="Save" runat="server"  OnClick="SaveButton" Class="btn btn-primary" />
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Clear</button>
             </div>
         </div>
     </div>
 </div>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-  
-    </form>
+  </div>
+</form>
 </body>
 </html>

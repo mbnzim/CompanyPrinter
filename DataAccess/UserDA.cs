@@ -73,16 +73,13 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand(updateQuery, con);
                 cmd.Parameters.AddWithValue("@lastname", registration.LastName);
                 cmd.Parameters.AddWithValue("@firstname", registration.FirstName);
-                //cmd.Parameters.AddWithValue("@designationid", registration.DesignationID);
                 cmd.Parameters.AddWithValue("@email", registration.Email);
-                //cmd.Parameters.AddWithValue("@username", registration.UserName);
                 cmd.Parameters.AddWithValue("@password", registration.Password);
                 cmd.Parameters.AddWithValue("@address", registration.Address);
                 cmd.Parameters.AddWithValue("@dob", registration.DOB);
 
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
-                //Response.Write("alert('DATA UPDATED')");
                 return Result;
             }
             catch(Exception ex)

@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Designation.aspx" />
-    <Content Include="Images\16xpDelete.png" />
+    <Content Include="Images\delete.png" />
     <Content Include="Images\add.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Login.aspx" />
