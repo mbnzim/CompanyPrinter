@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Printers.aspx.cs" Inherits="CompanyPrinter.Printers" %>
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+<%--<asp:Content ID="content1" ContentPlaceHolderID="head" runat="server"> --%>
+
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI.ComboBox" tagprefix="cc1" %>
 
@@ -40,12 +42,12 @@
     }
  
     .sidebar a.active {
-      background-color: #90A4AE;
+      background-color: #455A64;
       color: white;
     }
 
     .sidebar a:hover:not(.active) {
-      background-color: #263238;
+      background-color: #90A4AE;
       color: white;
     }
 
@@ -108,7 +110,7 @@
     .title1{
         color:white;
         text-align:center;
-        padding-bottom:60px
+        margin-top:15px;
     }
 </style>
 
@@ -130,7 +132,7 @@
     <div style="margin-top:0; padding-left: 200px; padding-right: 50px; overflow: auto;">
         <div>
             <div class="navbar">  
-              <h3 class="title1">Pinters</h3>                                  
+              <h4 class="title1">Printers</h4>                                  
            </div>
 
           <div class="sidebar">
@@ -271,10 +273,11 @@
             </div>
         </div>
     </div>
-</div>
-
+    </div>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
   </div>
 </form>
 </body>
 </html>
+   
+<%--</asp:Content>--%>
