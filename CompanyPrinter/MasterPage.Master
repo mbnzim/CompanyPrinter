@@ -9,17 +9,122 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+       <style>
+   body {
+     margin:0;
+      font-family: "Lato", sans-serif;
+    }
+
+    .sidebar {
+      margin-top:0;
+      margin-left:auto;
+      margin-right:auto;
+      padding: 0;
+      width: 200px;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 60%;
+      overflow: auto;
+      margin-top:0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+ 
+    .sidebar a.active {
+      background-color: #455A64;
+      color: white;
+    }
+
+    .sidebar a:hover:not(.active) {
+      background-color: #90A4AE;
+      color: white;
+    }
+
+    div.content {
+      margin-left: 200px;
+      padding: 1px 16px;
+      height: 1000px;
+    }
+
+    @media screen and (max-width: 700px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .sidebar a {float: left;}
+      div.content {margin-left: 0;}
+    }
+
+    @media screen and (max-width: 400px) {
+      .sidebar a {
+        text-align: center;
+        float: none;
+      }
+    }
+    .card{
+        margin:0 261px;
+        padding:20px
+    }
+    #form1{
+        margin-top:0;
+    }
+    .RadGrid .t-font-icon.rgIcon.rgEditIcon:before {
+    content: "\f044";
+    color: orange;
+}
+
+    .auto-style1 {
+        margin-left: 22px;
+    }
+    .navbar{
+        width:85%;
+        background-color: #37474F;
+        height: 52px;
+        margin-top:0 ;
+        margin-bottom:0;
+        padding-bottom:0;
+        padding-top: 0;
+        border-radius:0
+        
+    }
+    form1{
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    .container{
+        margin-left:200px;
+    }
+    .title1{
+        color:white;
+        text-align:center;
+        margin-top:15px;
+    }
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
         <div>
-          
+             <div class="navbar">  
+              <h4 class="title1">Printers</h4>                                  
+           </div>
+
           <div class="sidebar">
-              <a class="active" href="#printers">Printers</a>
+             <%-- <a class="active" href="#printers">Printers</a>--%>
+               <a href="#printers">Printers</a>
               <a href="#users">Users</a>
               <a href="#designation">Designations</a>
               <a href="#logout">Logout</a>
+              <a href="WebForm2.aspx" title="Display">WebForm2</a>
           </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 

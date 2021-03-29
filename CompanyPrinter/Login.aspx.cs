@@ -29,7 +29,7 @@ namespace CompanyPrinter
           
             if (dt.Rows[0][0].ToString() == "1")
             {
-                Response.Redirect("Printers.aspx");
+                Response.Redirect("Printer.aspx");
             }
             else {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Username or Password is incorrect')", true);
