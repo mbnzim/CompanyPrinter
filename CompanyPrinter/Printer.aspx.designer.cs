@@ -11,17 +11,26 @@ namespace CompanyPrinter
 {
 
 
-    public partial class Printers
+    public partial class Printer
     {
 
         /// <summary>
-        /// form1 control.
+        /// rad1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel rad1;
+
+        /// <summary>
+        /// radAjxPanelMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel radAjxPanelMain;
 
         /// <summary>
         /// RadCard1 control.
@@ -247,14 +256,5 @@ namespace CompanyPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }

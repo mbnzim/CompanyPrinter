@@ -1,19 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Printers.aspx.cs" Inherits="CompanyPrinter.Printers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Printer.aspx.cs" Inherits="CompanyPrinter.Printer" %>
+
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
-<%--<asp:Content ID="content1" ContentPlaceHolderID="head" runat="server"> --%>
-
-
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI.ComboBox" tagprefix="cc1" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        var disableAjax = false;
+        function mngRequestStarted(ajaxManager, eventArgs) {
+            if (disableAjax || eventArgs.get_eventTarget().indexOf("ExportToExcelButton") >= 0) {
+                disableAjax = false;
+                eventArgs.set_enableAjax(false);
+            }
+        }
+    </script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
-<style>
+
+    <style>
    body {
      margin:0;
       font-family: "Lato", sans-serif;
@@ -113,14 +117,15 @@
         margin-top:15px;
     }
 </style>
-
-</head>
-<body>
+</asp:Content>
 
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+  <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
+   <div>
+    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
 
- <form id="form1" runat="server">
      <script type="text/javascript">
          $(function () {
              $("#btnShowAddPrinter").click(function () {
@@ -135,12 +140,6 @@
               <h4 class="title1">Printers</h4>                                  
            </div>
 
-          <div class="sidebar">
-              <a class="active" href="#printers">Printers</a>
-              <a href="#users">Users</a>
-              <a href="#designation">Designations</a>
-              <a href="#logout">Logout</a>
-              </div>
 
             <div class="container">
             <div class="card">      
@@ -274,10 +273,9 @@
         </div>
     </div>
     </div>
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
   </div>
-</form>
-</body>
-</html>
-   
-<%--</asp:Content>--%>
+       </telerik:RadAjaxPanel>
+   </div>
+       
+
+</asp:Content>

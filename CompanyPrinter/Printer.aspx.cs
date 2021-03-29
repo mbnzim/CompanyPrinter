@@ -9,10 +9,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Security;
 
-
 namespace CompanyPrinter
 {
-    public partial class Printers : System.Web.UI.Page
+    public partial class Printer : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
