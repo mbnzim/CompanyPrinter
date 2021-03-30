@@ -80,6 +80,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Printer.aspx" />
     <Content Include="UpdateUser.aspx" />
+    <Content Include="User.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
     <Content Include="CreateUser.aspx" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="UpdateUser.aspx.designer.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

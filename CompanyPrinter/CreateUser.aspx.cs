@@ -64,7 +64,8 @@ namespace CompanyPrinter
             int result = objUBL.UserRegistration(reg);
             if (result > 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User has been created successfully')", true);
+                Response.Redirect("User.aspx");
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User has been created successfully')", true);
             }
         }
 

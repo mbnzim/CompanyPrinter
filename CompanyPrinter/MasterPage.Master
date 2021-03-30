@@ -121,13 +121,13 @@
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
         <telerik:RadMenu RenderMode="Lightweight" ID="RadMenu1" runat="server" Flow="Vertical">
             <Items>
-                <telerik:RadMenuItem runat="server" Text="Printers">
+                <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="Printer.aspx">
                 <%--    <Items>
                         <telerik:RadMenuItem runat="server" Text="Printer Make">
                         </telerik:RadMenuItem>
                     </Items>--%>
                 </telerik:RadMenuItem>
-                <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/Users.aspx">
+                <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/User.aspx">
                 <%--    <Items>
                         <telerik:RadMenuItem runat="server" Text="Users">
                         </telerik:RadMenuItem>

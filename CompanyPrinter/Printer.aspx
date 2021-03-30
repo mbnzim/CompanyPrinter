@@ -26,7 +26,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-  <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
+    <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
