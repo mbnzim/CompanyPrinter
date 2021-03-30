@@ -133,7 +133,7 @@
                         </telerik:RadMenuItem>
                     </Items>--%>
                 </telerik:RadMenuItem>
-                    <telerik:RadMenuItem runat="server" Text="Designations">
+                    <telerik:RadMenuItem runat="server" Text="Designations" NavigateUrl="Desinations.aspx">
                    <%-- <Items>
                         <telerik:RadMenuItem runat="server" Text="Designations">
                         </telerik:RadMenuItem>

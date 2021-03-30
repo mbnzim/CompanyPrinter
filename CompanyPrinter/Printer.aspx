@@ -26,7 +26,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
+  <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
@@ -35,7 +35,7 @@
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
             <script type="text/javascript">
                 $(function () {
-                    $("#btnShowAddPrinter").click(function () {
+                    $("#btnShowLogin").click(function () {
                         $('#LoginModal').modal('show');
                     });
                 });
@@ -78,6 +78,8 @@
                         <tr>
                             <td> </td>
                             <td>
+                
+                                <input type = "button" id="btnShowLogin" value = "Login" />
                                 <telerik:RadButton ID="btnShowAddPrinter" runat="server" Text="Add Printer"></telerik:RadButton>
                                 <telerik:RadButton ID="SearchButton" runat="server" OnClick="Search_Button" Text="Search"></telerik:RadButton>
                                 <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
@@ -88,11 +90,13 @@
                   </telerik:RadCard>     
                 </div>
                   <%-- <asp:GridView ID="GridView1" runat="server"></asp:GridView>  --%>  
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="true" AllowMultiRowSelection="true" AllowFilteringByColumn= "true" CssClass="auto-style1">
-                      <ClientSettings Selecting-AllowRowSelect="true">   </ClientSettings>
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                      <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                      <ClientSettings Selecting-AllowRowSelect="true">
+                          <Selecting AllowRowSelect="True" />
+                      </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
-                              <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" />   
                               <telerik:GridBoundColumn DataField="PrinterName" FilterControlAltText="Filter PrinterName column" HeaderText="PrinterName" SortExpression="PrinterName" UniqueName="PrinterName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FolderToMonitor" FilterControlAltText="Filter FolderToMonitor column" HeaderText="FolderToMonitor" SortExpression="FolderToMonitor" UniqueName="FolderToMonitor">
@@ -101,14 +105,14 @@
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FileOutput" FilterControlAltText="Filter FileOutput column" HeaderText="FileOutput" SortExpression="FileOutput" UniqueName="FileOutput">
                               </telerik:GridBoundColumn>
-                              <telerik:GridCheckBoxColumn DataField="Active"  DataType="System.Boolean" FilterControlAltText="Filter Active column" HeaderText="Active" SortExpression="Active" UniqueName="Active">
+                              <telerik:GridCheckBoxColumn DataField="Active" DataType="System.Boolean" FilterControlAltText="Filter Active column" HeaderText="Active" SortExpression="Active" UniqueName="Active">
                               </telerik:GridCheckBoxColumn>
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
+                              <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
                                   ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
+                                  <ItemStyle CssClass="ButtonColumn"  />
                               </telerik:GridButtonColumn> 
 
                                 <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
@@ -122,13 +126,13 @@
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
                               </telerik:GridButtonColumn>
-                             </Columns>
-                   </MasterTableView>
+                          </Columns>
+                      </MasterTableView>
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
         </div>
     </div>   
-
+             </div>
 
         <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog">
@@ -141,22 +145,18 @@
             <div class="modal-body">
                 <label for="txtprintername"> Printer Name</label>
                 <asp:TextBox ID="txtprintername" runat="server"></asp:TextBox>
-               <%-- <asp:TextBox ID="txtprintername" runat="server" CssClass="form-control" required="true"  />--%>
                 <br />
 
                 <label for="txtfoldertomonitor"> Folder To Monitor</label>
                  <asp:TextBox ID="txtfoldertomonitor" runat="server"></asp:TextBox>
-             <%--   <asp:TextBox ID="txtfoldertomonitor" runat="server" CssClass="form-control"  required="true"/>--%>
                 <br />
 
                 <label for="txtoutputtype"> Out put Type</label>
                    <asp:TextBox ID="txtoutputtype" runat="server"></asp:TextBox>
-               <%-- <asp:TextBox ID="txtoutputtype" runat="server" CssClass="form-control" required="true" />--%>
                 <br />
 
                 <label for="txtfileoutput"> File Ou tput</label>
                  <asp:TextBox ID="txtfileoutput" runat="server"></asp:TextBox>
-                <%--<asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control"  required="true"/>--%>
                 <br />
 
                  <label for="txtprinterMake"> Printer Make</label>
@@ -179,8 +179,54 @@
               </div>
              </div>
           </div>
-      </div>
-       
+
+<%--<input type = "button" id="btnShowLogin" class="btn btn-primary" value = "Login" />--%>
+
+<%--<script type="text/javascript">
+    $(function () {
+        $("#btnShowLogin").click(function () {
+            $('#LoginModal').modal('show');
+        });
+    });
+</script>
+<!-- Modal -->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;</button>
+                <h4 class="modal-title" id="ModalTitle">
+                    Login</h4>
+            </div>
+            <div class="modal-body">
+                <label for="txtUsername">
+                    Username</label>
+                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username"
+                    required="true" />
+                <br />
+                <label for="txtPassword">
+                    Password</label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
+                    placeholder="Enter Username" required ="true" />
+                <div class="checkbox">
+                    <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
+                </div>
+                <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
+                    <strong>Error!</strong>
+                    <asp:Label ID="lblMessage" runat="server" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>--%>
        </telerik:RadAjaxPanel>
    </div> 
 </asp:Content>
