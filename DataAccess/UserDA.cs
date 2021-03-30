@@ -105,6 +105,7 @@ namespace DataAccess
         }
      
 
+
         //======================================================Designations==============================================
         public int AddDesignation(Designation ObjDesignation) 
         {
@@ -190,6 +191,28 @@ namespace DataAccess
                 throw ex;
             }
         }
-       
+        public void searchPrinters(RadGrid radGrid, int printermakeID, DateTime timefrom, DateTime timeto)
+        {
+            try
+            {
+                con.Open();
+                string searchQuery =  "SELECT* FROM  Printers WHERE CreatedDate BETWEEN '"+timefrom+"' and '"+ timeto + "' AND PrinterMakeID = '"+ printermakeID + "'";
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                radGrid.DataSourceID = null;
+                radGrid.DataSource = dt;
+                radGrid.DataBind();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Printer.aspx.cs" Inherits="CompanyPrinter.Printer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Printer.aspx.cs" Inherits="CompanyPrinter.Printer" %>
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI.ComboBox" tagprefix="cc1" %>
@@ -12,17 +12,13 @@
                 eventArgs.set_enableAjax(false);
             }
         }
-    </script>
-       <script type="text/javascript">
-            $(function () {
-                $("#btnShowAddPrinter").click(function () {
-                    $('#LoginModal').modal('show');
-                });
-            });
-        </script>
+</script>
+   
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
+
+
 </asp:Content>
 
 
@@ -31,14 +27,19 @@
   <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
-
- 
-     
+            <script type="text/javascript">
+                $(function () {
+                    $("#btnShowAddPrinter").click(function () {
+                        $('#LoginModal').modal('show');
+                    });
+                });
+            </script>     
     <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
-
+    
             <div class="container">
-            <div class="card">      
+               <%--  <telerik:RadButton ID="RadButton1" runat="server" Text="RadButton" OnClick="RadButton1_Click"></telerik:RadButton>--%>
+                 <div class="card">      
                   <telerik:RadCard ID="RadCard1" runat="server" Width="500px" >
                     <table>
                         <tr>
@@ -46,7 +47,7 @@
                                 <telerik:RadLabel ID="RadLabel2" runat="server" Text="Printer Make" Font-Size="Small"></telerik:RadLabel>
                             </td>
                          <td class="auto-style1">
-                        <telerik:RadComboBox ID="txtdesignation" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="270px"></telerik:RadComboBox>
+                        <telerik:RadComboBox ID="txtprintermake" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="270px"></telerik:RadComboBox>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
                     </td>
                       </tr>
@@ -70,15 +71,15 @@
                             <td> </td>
                             <td>
                                 <telerik:RadButton ID="btnShowAddPrinter" runat="server" Text="Add Printer"></telerik:RadButton>
-                                <telerik:RadButton ID="RadButton2" runat="server" Text="Search"></telerik:RadButton>
+                                <telerik:RadButton ID="SearchButton" runat="server" OnClick="Search_Button" Text="Search"></telerik:RadButton>
                                 <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
-                                <telerik:RadButton ID="RadButton4" runat="server" Text="Clear"></telerik:RadButton>
-                    
+                                <telerik:RadButton ID="RadButton4" runat="server" Text="Clear"></telerik:RadButton>                   
                             </td>
                         </tr>
                     </table>
                   </telerik:RadCard>     
                 </div>
+                  <%-- <asp:GridView ID="GridView1" runat="server"></asp:GridView>  --%>  
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="true" AllowMultiRowSelection="true" AllowFilteringByColumn= "true" CssClass="auto-style1">
                       <ClientSettings Selecting-AllowRowSelect="true">   </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
@@ -119,32 +120,35 @@
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
         </div>
     </div>   
-        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-            aria-hidden="true">
+
+
+        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;</button>
-                        <h4 class="modal-title" id="ModalTitle">
-                            Add Printer</h4>
-            </div>
+                        <h4 class="modal-title" id="ModalTitle">  Add Printer</h4> </div>
 
             <div class="modal-body">
                 <label for="txtprintername"> Printer Name</label>
-                <asp:TextBox ID="txtprintername" runat="server" CssClass="form-control" required />
+                <asp:TextBox ID="txtprintername" runat="server"></asp:TextBox>
+               <%-- <asp:TextBox ID="txtprintername" runat="server" CssClass="form-control" required="true"  />--%>
                 <br />
 
                 <label for="txtfoldertomonitor"> Folder To Monitor</label>
-                <asp:TextBox ID="txtfoldertomonitor" runat="server" CssClass="form-control"  required/>
+                 <asp:TextBox ID="txtfoldertomonitor" runat="server"></asp:TextBox>
+             <%--   <asp:TextBox ID="txtfoldertomonitor" runat="server" CssClass="form-control"  required="true"/>--%>
                 <br />
 
                 <label for="txtoutputtype"> Out put Type</label>
-                <asp:TextBox ID="txtoutputtype" runat="server" CssClass="form-control" required />
+                   <asp:TextBox ID="txtoutputtype" runat="server"></asp:TextBox>
+               <%-- <asp:TextBox ID="txtoutputtype" runat="server" CssClass="form-control" required="true" />--%>
                 <br />
 
                 <label for="txtfileoutput"> File Ou tput</label>
-                <asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control"  required/>
+                 <asp:TextBox ID="txtfileoutput" runat="server"></asp:TextBox>
+                <%--<asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control"  required="true"/>--%>
                 <br />
 
                  <label for="txtprinterMake"> Printer Make</label>
@@ -168,6 +172,7 @@
              </div>
           </div>
       </div>
+       
     </telerik:RadAjaxPanel>
    </div> 
 </asp:Content>

@@ -51,13 +51,13 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel RadLabel2;
 
         /// <summary>
-        /// txtdesignation control.
+        /// txtprintermake control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox txtdesignation;
+        protected global::Telerik.Web.UI.RadComboBox txtprintermake;
 
         /// <summary>
         /// SqlDataSource1 control.
@@ -105,13 +105,22 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadDatePicker timestapto;
 
         /// <summary>
-        /// RadButton2 control.
+        /// btnShowAddPrinter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton2;
+        protected global::Telerik.Web.UI.RadButton btnShowAddPrinter;
+
+        /// <summary>
+        /// SearchButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton SearchButton;
 
         /// <summary>
         /// RadButton3 control.

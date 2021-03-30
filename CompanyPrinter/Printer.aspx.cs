@@ -8,6 +8,7 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Security;
+using DataAccess;
 
 namespace CompanyPrinter
 {
@@ -22,7 +23,7 @@ namespace CompanyPrinter
         }
         protected void SaveButton(object sender, EventArgs e)
         {
-
+           
             BussinessObject.Printer printer = new BussinessObject.Printer();
 
             printer.PrinterName = txtprintername.Text;
@@ -48,6 +49,13 @@ namespace CompanyPrinter
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Printer has been added successfully')", true);
             }
+        }
+
+        protected void Search_Button(object sender, EventArgs e)
+        {
+            UserDA userDA = new UserDA();
+            userDA.searchPrinters(RadGrid1, Convert.ToInt32(txtprintermake.SelectedValue), (DateTime)timestapfrom.SelectedDate, (DateTime)timestapto.SelectedDate);
+
         }
     }
 }
