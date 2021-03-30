@@ -18,7 +18,9 @@
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
 
-
+<style>
+ 
+</style>
 </asp:Content>
 
 
@@ -26,6 +28,10 @@
 
   <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
+       <div class="title2">
+            <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
+       </div>
+       
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
             <script type="text/javascript">
                 $(function () {
@@ -34,12 +40,14 @@
                     });
                 });
             </script>     
-    <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
+        <br /><br>
+         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
-    
+   
             <div class="container">
-               <%--  <telerik:RadButton ID="RadButton1" runat="server" Text="RadButton" OnClick="RadButton1_Click"></telerik:RadButton>--%>
+             
                  <div class="card">      
+                        
                   <telerik:RadCard ID="RadCard1" runat="server" Width="500px" >
                     <table>
                         <tr>
@@ -173,6 +181,6 @@
           </div>
       </div>
        
-    </telerik:RadAjaxPanel>
+       </telerik:RadAjaxPanel>
    </div> 
 </asp:Content>

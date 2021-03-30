@@ -9,10 +9,11 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-       <style>
+  <style>
    body {
      margin:0;
       font-family: "Lato", sans-serif;
+/*       background-color:#CFD8DC;*/
     }
 
     .sidebar {
@@ -108,24 +109,40 @@
         text-align:center;
         margin-top:15px;
     }
+       .title2{   
+        /*text-align:center;*/
+        margin-left:45%;
+    }
+    }
 </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
+        <telerik:RadMenu RenderMode="Lightweight" ID="RadMenu1" runat="server" Flow="Vertical">
+            <Items>
+                <telerik:RadMenuItem runat="server" Text="Printers">
+                <%--    <Items>
+                        <telerik:RadMenuItem runat="server" Text="Printer Make">
+                        </telerik:RadMenuItem>
+                    </Items>--%>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/Users.aspx">
+                <%--    <Items>
+                        <telerik:RadMenuItem runat="server" Text="Users">
+                        </telerik:RadMenuItem>
+                    </Items>--%>
+                </telerik:RadMenuItem>
+                    <telerik:RadMenuItem runat="server" Text="Designations">
+                   <%-- <Items>
+                        <telerik:RadMenuItem runat="server" Text="Designations">
+                        </telerik:RadMenuItem>
+                    </Items>--%>
+                </telerik:RadMenuItem>
+              <telerik:RadMenuItem runat="server" Text="Logout" NavigateUrl="Login.aspx"/>
+            </Items>
+        </telerik:RadMenu>
         <div>
-             <div class="navbar">  
-              <h4 class="title1">Printers</h4>                                  
-           </div>
-
-          <div class="sidebar">
-             <%-- <a class="active" href="#printers">Printers</a>--%>
-               <a href="#printers">Printers</a>
-              <a href="#users">Users</a>
-              <a href="#designation">Designations</a>
-              <a href="#logout">Logout</a>
-              <a href="WebForm2.aspx" title="Display">WebForm2</a>
-          </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
             </asp:ContentPlaceHolder>
