@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="Designation.aspx" />
     <Content Include="Desinations.aspx" />
+    <Content Include="Documents.aspx" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\add.png" />
     <Content Include="Images\edit.png" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="Desinations.aspx.designer.cs">
       <DependentUpon>Desinations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.aspx.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Documents.aspx.designer.cs">
+      <DependentUpon>Documents.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

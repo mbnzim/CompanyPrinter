@@ -1,4 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="CompanyPrinter.User" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Documents.aspx.cs" Inherits="CompanyPrinter.Documents" %>
+
+
+
+
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI.ComboBox" tagprefix="cc1" %>
@@ -20,16 +24,12 @@
 
 <style>
  .creatuser{
-    /* margin-left:81%;*/
-    margin-left:0;
- }
- .search{
      margin-left:0;
-      /*margin-left:70%;*/
-   /*  position:relative;
-     left:83%;
-*/
  }
+    .auto-style3 {
+        margin-left: 200px;
+        width: 500px;
+    }
 </style>
 </asp:Content>
 
@@ -39,7 +39,7 @@
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
        <div class="title2">
-            <telerik:RadLabel ID="RadLabel1" runat="server" Text="Users" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
+            <telerik:RadLabel ID="RadLabel1" runat="server" Text="Documents" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>
        
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
@@ -49,40 +49,28 @@
         <br /><br>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
-           
-                 
-            <div class="container">
-             <div class="search">
-                  <telerik:RadButton ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click"></telerik:RadButton>
-                 <telerik:RadTextBox ID="txtusername"  runat="server" DisplayText="Username"></telerik:RadTextBox>           
-             </div>
-                 <br />
-              <div class="creatuser">
-             <telerik:RadButton ID="RadButton1" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
-                <br />
-              
-              </div><br />
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+   
+            <div class="auto-style3">
+          <%--       <div class="creatuser">
+             <telerik:RadButton ID="RadButton1" runat="server" Text="Add Designation" OnClick="RadButton1_Click"/> </div><br />--%>
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
-                     <ClientSettings Selecting-AllowRowSelect="true">
-                      <Selecting AllowRowSelect="True" />
+                      <ClientSettings Selecting-AllowRowSelect="true">
+                          <Selecting AllowRowSelect="True" />
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
-
-                              <telerik:GridBoundColumn DataField="LastName" FilterControlAltText="Filter LastName column" HeaderText="LastName" SortExpression="LastName" UniqueName="LastName">
+                              <telerik:GridBoundColumn DataField="DocType" FilterControlAltText="Filter DocType column" HeaderText="DocType" SortExpression="DocType" UniqueName="DocType">
                               </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="FirstName" FilterControlAltText="Filter FirstName column" HeaderText="FirstName" SortExpression="FirstName" UniqueName="FirstName">
+                                <telerik:GridBoundColumn DataField="DocUrl" FilterControlAltText="Filter DocUrl column" HeaderText="DocUrl" SortExpression="DocUrl" UniqueName="DocUrl">
                               </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="Email" FilterControlAltText="Filter Email column" HeaderText="Email" SortExpression="Email" UniqueName="Email">
+                              <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="UserName" FilterControlAltText="Filter UserName column" HeaderText="UserName" SortExpression="UserName" UniqueName="UserName">
+                              <telerik:GridBoundColumn DataField="UserId" DataType="System.Int32" FilterControlAltText="Filter UserId column" HeaderText="UserId" SortExpression="UserId" UniqueName="UserId">
                               </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="Address" FilterControlAltText="Filter Address column" HeaderText="Address" SortExpression="Address" UniqueName="Address">
+                              <telerik:GridBoundColumn DataField="PrinterId" DataType="System.Int32" FilterControlAltText="Filter PrinterId column" HeaderText="PrinterId" SortExpression="PrinterId" UniqueName="PrinterId">
                               </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="DOB" DataType="System.DateTime" FilterControlAltText="Filter DOB column" HeaderText="DOB" SortExpression="DOB" UniqueName="DOB">
-                              </telerik:GridBoundColumn>
-                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
+                                     <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
                                   ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
@@ -94,11 +82,11 @@
                                   <ItemStyle CssClass="ButtonColumn" />
                               </telerik:GridButtonColumn>
 
-                             
+                 
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB] FROM [Users]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [DocType], [DocUrl], [CreatedDate], [UserId], [PrinterId] FROM [Documents]"></asp:SqlDataSource>
         </div>
        </div>
     </div>   
@@ -106,4 +94,3 @@
 
    </div> 
 </asp:Content>
-

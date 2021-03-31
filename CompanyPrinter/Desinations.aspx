@@ -22,8 +22,12 @@
 
 <style>
  .creatuser{
-     margin-left:83%;
+     margin-left:0;
  }
+    .auto-style3 {
+        margin-left: 200px;
+        width: 500px;
+    }
 </style>
 </asp:Content>
 
@@ -44,10 +48,10 @@
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
    
-            <div class="container">
+            <div class="auto-style3">
                  <div class="creatuser">
              <telerik:RadButton ID="RadButton1" runat="server" Text="Add Designation" OnClick="RadButton1_Click"/> </div><br />
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="206px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
                           <Selecting AllowRowSelect="True" />
@@ -68,11 +72,7 @@
                                   <ItemStyle CssClass="ButtonColumn" />
                               </telerik:GridButtonColumn>
 
-                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
-                                  ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
+                 
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>

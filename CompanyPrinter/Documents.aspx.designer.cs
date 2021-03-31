@@ -11,7 +11,7 @@ namespace CompanyPrinter
 {
 
 
-    public partial class User
+    public partial class Documents
     {
 
         /// <summary>
@@ -40,33 +40,6 @@ namespace CompanyPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxPanel radAjxPanelMain;
-
-        /// <summary>
-        /// btnsearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnsearch;
-
-        /// <summary>
-        /// txtusername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtusername;
-
-        /// <summary>
-        /// RadButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton1;
 
         /// <summary>
         /// RadGrid1 control.

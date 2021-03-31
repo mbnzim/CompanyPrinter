@@ -69,16 +69,20 @@
                         <tr>
                             <td> </td>
                             <td>                
-                                <input type = "button" id="btnShowLogin" value = "Add Printer" />
+                              
                                 <%--<telerik:RadButton ID="btnShowAddPrinter" runat="server" Text="Add Printer"></telerik:RadButton>--%>
-                                <telerik:RadButton ID="SearchButton" runat="server" OnClick="Search_Button" Text="Search"></telerik:RadButton>
-                                <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
+                                <telerik:RadButton ID="SearchButton" runat="server" OnClick="Search_Button" Text="Search"></telerik:RadButton>                         
                                 <telerik:RadButton ID="RadButton4" runat="server" Text="Clear"></telerik:RadButton>                   
                             </td>
                         </tr>
                     </table>
                   </telerik:RadCard>     
-                </div>             
+                </div>      
+                  <input type = "button" id="btnShowLogin" value = "Add Printer" />
+              <%--  <telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
+                   <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
+                      <br />
+                        <br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">

@@ -57,8 +57,8 @@
                         <br />
                         <asp:TextBox ID="txtusername" Width="200px" runat="server"></asp:TextBox>
                         <asp:Label ID="lbusername" runat="server" Text="First Name Required" ForeColor="Red" Visible="False"></asp:Label>
-                    </td>
-                </tr>
+                 </td>
+                 </tr>
                        <tr>
                     <td class="auto-style2">
                             <telerik:RadLabel ID="RadLabel2" runat="server" Text="Password"></telerik:RadLabel>                  
@@ -68,8 +68,7 @@
                           <asp:Label ID="lbpassword" runat="server" Text="Last Name Required" ForeColor="Red" Visible="False"></asp:Label>
                     </td>
                 </tr>
-              
-
+             
                 <tr>
                     <td class="auto-style2"></td>
                     <td class="auto-style1" >

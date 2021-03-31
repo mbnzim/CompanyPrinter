@@ -82,9 +82,6 @@
     color: orange;
 }
 
-    .auto-style1 {
-        margin-left: 22px;
-    }
     .navbar{
         width:85%;
         background-color: #37474F;
@@ -114,31 +111,31 @@
         margin-left:45%;
     }
     }
-</style>
+      .auto-style2 {
+          left: 0px;
+          top: 0px;
+          height: 30px;
+          width: 504px;
+      }
+  </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
-        <telerik:RadMenu RenderMode="Lightweight" ID="RadMenu1" runat="server" Flow="Vertical">
+        <telerik:RadMenu ID="RadMenu1" runat="server" Flow="Vertical" CssClass="auto-style2">
             <Items>
                 <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="Printer.aspx">
                 <%--    <Items>
                         <telerik:RadMenuItem runat="server" Text="Printer Make">
                         </telerik:RadMenuItem>
                     </Items>--%>
-                </telerik:RadMenuItem>
-                <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/User.aspx">
-                <%--    <Items>
-                        <telerik:RadMenuItem runat="server" Text="Users">
-                        </telerik:RadMenuItem>
-                    </Items>--%>
-                </telerik:RadMenuItem>
-                    <telerik:RadMenuItem runat="server" Text="Designations" NavigateUrl="Desinations.aspx">
-                   <%-- <Items>
-                        <telerik:RadMenuItem runat="server" Text="Designations">
-                        </telerik:RadMenuItem>
-                    </Items>--%>
-                </telerik:RadMenuItem>
+               </telerik:RadMenuItem>
+               <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/User.aspx">
+              </telerik:RadMenuItem>
+              <telerik:RadMenuItem runat="server" Text="Designations" NavigateUrl="Desinations.aspx">
+               </telerik:RadMenuItem>
+              <telerik:RadMenuItem runat="server" Text="Documents" NavigateUrl="Documents.aspx" >
+              </telerik:RadMenuItem>
               <telerik:RadMenuItem runat="server" Text="Logout" NavigateUrl="Login.aspx"/>
             </Items>
         </telerik:RadMenu>

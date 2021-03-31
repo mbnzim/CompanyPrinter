@@ -123,15 +123,6 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadButton SearchButton;
 
         /// <summary>
-        /// RadButton3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton3;
-
-        /// <summary>
         /// RadButton4 control.
         /// </summary>
         /// <remarks>
@@ -139,6 +130,15 @@ namespace CompanyPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton RadButton4;
+
+        /// <summary>
+        /// RadButton3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton RadButton3;
 
         /// <summary>
         /// RadGrid1 control.
