@@ -12,42 +12,33 @@
                 eventArgs.set_enableAjax(false);
             }
         }
-</script>
-   
-    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+
+        </script>
+     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
-
-<style>
- 
-</style>
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-  <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
+    <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
-       </div>
-       
+       </div>  
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
-            <script type="text/javascript">
-                $(function () {
-                    $("#btnShowLogin").click(function () {
-                        $('#LoginModal').modal('show');
-                    });
-                });
-            </script>     
-        <br /><br>
-         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
+              <script type="text/javascript">
+                  $(function () {
+                      $("#btnShowLogin").click(function () {
+                          $('#LoginModal').modal('show');
+                      });
+                  });
+              </script> 
+        <br/><br/>
+        <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
-   
             <div class="container">
-             
-                 <div class="card">      
-                        
+                 <div class="card">          
                   <telerik:RadCard ID="RadCard1" runat="server" Width="500px" >
                     <table>
                         <tr>
@@ -77,10 +68,9 @@
                         </tr>
                         <tr>
                             <td> </td>
-                            <td>
-                
-                                <input type = "button" id="btnShowLogin" value = "Login" />
-                                <telerik:RadButton ID="btnShowAddPrinter" runat="server" Text="Add Printer"></telerik:RadButton>
+                            <td>                
+                                <input type = "button" id="btnShowLogin" value = "Add Printer" />
+                                <%--<telerik:RadButton ID="btnShowAddPrinter" runat="server" Text="Add Printer"></telerik:RadButton>--%>
                                 <telerik:RadButton ID="SearchButton" runat="server" OnClick="Search_Button" Text="Search"></telerik:RadButton>
                                 <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
                                 <telerik:RadButton ID="RadButton4" runat="server" Text="Clear"></telerik:RadButton>                   
@@ -88,8 +78,7 @@
                         </tr>
                     </table>
                   </telerik:RadCard>     
-                </div>
-                  <%-- <asp:GridView ID="GridView1" runat="server"></asp:GridView>  --%>  
+                </div>             
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
@@ -97,6 +86,7 @@
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
+                               <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" /> 
                               <telerik:GridBoundColumn DataField="PrinterName" FilterControlAltText="Filter PrinterName column" HeaderText="PrinterName" SortExpression="PrinterName" UniqueName="PrinterName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FolderToMonitor" FilterControlAltText="Filter FolderToMonitor column" HeaderText="FolderToMonitor" SortExpression="FolderToMonitor" UniqueName="FolderToMonitor">
@@ -131,9 +121,11 @@
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
         </div>
-    </div>   
-             </div>
+        </div>   
+    </div>
 
+      
+       
         <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -144,19 +136,19 @@
 
             <div class="modal-body">
                 <label for="txtprintername"> Printer Name</label>
-                <asp:TextBox ID="txtprintername" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtprintername" runat="server" CssClass="form-control" placeholder="Enter Username" />
                 <br />
 
                 <label for="txtfoldertomonitor"> Folder To Monitor</label>
-                 <asp:TextBox ID="txtfoldertomonitor" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtfoldertomonitor" runat="server" CssClass="form-control" placeholder="Enter Username" />
                 <br />
 
                 <label for="txtoutputtype"> Out put Type</label>
-                   <asp:TextBox ID="txtoutputtype" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtoutputtype" runat="server" CssClass="form-control" placeholder="Enter Username"/>
                 <br />
 
                 <label for="txtfileoutput"> File Ou tput</label>
-                 <asp:TextBox ID="txtfileoutput" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control" placeholder="Enter Username"/>
                 <br />
 
                  <label for="txtprinterMake"> Printer Make</label>
@@ -172,61 +164,13 @@
                     <asp:Label ID="lblMessage" runat="server" />
                 </div>
                 </div>
-                <div class="modal-footer">
-                    <asp:Button ID="btnSave" Text="Save" runat="server"  OnClick="SaveButton" Class="btn btn-primary" />
+               <div class="modal-footer">             
+                    <asp:Button ID="btnSave" Text="Save" runat="server"  OnClick="SaveButton" Class="btn btn-primary"  data-dismiss="modal" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Clear</button>
                 </div>
               </div>
              </div>
           </div>
-
-<%--<input type = "button" id="btnShowLogin" class="btn btn-primary" value = "Login" />--%>
-
-<%--<script type="text/javascript">
-    $(function () {
-        $("#btnShowLogin").click(function () {
-            $('#LoginModal').modal('show');
-        });
-    });
-</script>
-<!-- Modal -->
-<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;</button>
-                <h4 class="modal-title" id="ModalTitle">
-                    Login</h4>
-            </div>
-            <div class="modal-body">
-                <label for="txtUsername">
-                    Username</label>
-                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Enter Username"
-                    required="true" />
-                <br />
-                <label for="txtPassword">
-                    Password</label>
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"
-                    placeholder="Enter Username" required ="true" />
-                <div class="checkbox">
-                    <asp:CheckBox ID="chkRememberMe" Text="Remember Me" runat="server" />
-                </div>
-                <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
-                    <strong>Error!</strong>
-                    <asp:Label ID="lblMessage" runat="server" />
-                </div>
-            </div>
-            <div class="modal-footer">
-                <asp:Button ID="btnLogin" Text="Login" runat="server" OnClick="ValidateUser" Class="btn btn-primary" />
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    Close</button>
-                  </div>
-              </div>
-            </div>
-        </div>
-      </div>--%>
-       </telerik:RadAjaxPanel>
+       </telerik:RadAjaxPanel>      
    </div> 
 </asp:Content>
