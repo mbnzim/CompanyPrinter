@@ -17,16 +17,18 @@ namespace CompanyPrinter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Page.User.Identity.IsAuthenticated)
-            {
-                //Response.Redirect(FormsAuthentication.DefaultUrl);
-            }
+            txtusername.Text = (string)Session["User"];
+            //if (this.Page.User.Identity.IsAuthenticated)
+            //{
+            //    //Response.Redirect(FormsAuthentication.DefaultUrl);
+                
+            //}
         }
         protected void SaveButton(object sender, EventArgs e)
         {
 
             BussinessObject.Printer printer = new BussinessObject.Printer();
-
+         
             printer.PrinterName = txtprintername.Text;
             printer.FolderToMonitor = txtfoldertomonitor.Text;
             printer.OutputType = txtoutputtype.Text;

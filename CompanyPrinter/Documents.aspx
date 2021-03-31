@@ -30,6 +30,10 @@
         margin-left: 200px;
         width: 500px;
     }
+
+     .userloggedin{
+            margin-left:80%;
+        }
 </style>
 </asp:Content>
 
@@ -38,6 +42,9 @@
 
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
+       <div class="userloggedin">
+           <asp:Label ID="lbtxtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
+       </div>
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Documents" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>

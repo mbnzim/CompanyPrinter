@@ -14,11 +14,12 @@ namespace CompanyPrinter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+    
         }
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CompanyPrinterDB"].ToString());
         protected void LoginButton_Click(object sender, EventArgs e)
         {
+            
             con.Open();
             string UserLoginQuery = "select Count(*) from Users Where UserName='" + txtusername.Text+ "' AND Password='"+ txtpassword.Text+"'";
             SqlCommand cmd = new SqlCommand(UserLoginQuery, con);
@@ -29,6 +30,7 @@ namespace CompanyPrinter
           
             if (dt.Rows[0][0].ToString() == "1")
             {
+                Session["User"] = txtusername.Text;
                 Response.Redirect("Printer.aspx");
             }
             else {
@@ -36,6 +38,8 @@ namespace CompanyPrinter
 
             }
             con.Close();
+
+           
         }
     }
 }

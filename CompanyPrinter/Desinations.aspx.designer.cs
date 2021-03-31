@@ -24,6 +24,15 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel rad1;
 
         /// <summary>
+        /// lbtxtusername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbtxtusername;
+
+        /// <summary>
         /// RadLabel1 control.
         /// </summary>
         /// <remarks>

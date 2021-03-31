@@ -17,15 +17,27 @@
      <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
+
+    <style>
+        .userloggedin{
+            margin-left:80%;
+        }
+    </style>
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
+       <div class="userloggedin">
+           <asp:Label ID="txtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
+       </div>
+        
+
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>  
+      
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
               <script type="text/javascript">
                   $(function () {
@@ -37,7 +49,10 @@
         <br/><br/>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
+           
             <div class="container">
+                  
+               <%--  <telerik:RadLabel ID="lbusername" Text="Username" runat="server"></telerik:RadLabel>--%>
                  <div class="card">          
                   <telerik:RadCard ID="RadCard1" runat="server" Width="500px" >
                     <table>
@@ -103,7 +118,7 @@
                               </telerik:GridCheckBoxColumn>
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                              <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
+                              <telerik:GridButtonColumn ButtonType="ImageButton"  CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
                                   ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn"  />

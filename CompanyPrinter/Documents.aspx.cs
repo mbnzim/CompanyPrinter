@@ -11,7 +11,7 @@ namespace CompanyPrinter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbtxtusername.Text = (string)Session["User"];
         }
     }
 }

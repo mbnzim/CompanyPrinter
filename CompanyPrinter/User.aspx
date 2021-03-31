@@ -20,16 +20,16 @@
 
 <style>
  .creatuser{
-    /* margin-left:81%;*/
     margin-left:0;
  }
  .search{
      margin-left:0;
-      /*margin-left:70%;*/
-   /*  position:relative;
-     left:83%;
-*/
  }
+
+  .userloggedin{
+     margin-left:80%;
+  }
+  
 </style>
 </asp:Content>
 
@@ -38,6 +38,9 @@
 
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
    <div>
+         <div class="userloggedin">
+           <asp:Label ID="lbtxtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
+       </div>
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Users" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>
@@ -58,7 +61,9 @@
              </div>
                  <br />
               <div class="creatuser">
-             <telerik:RadButton ID="RadButton1" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
+                <telerik:RadButton ID="btnCreateuser" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" /> 
+               <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> 
                 <br />
               
               </div><br />
@@ -102,7 +107,7 @@
         </div>
        </div>
     </div>   
-       </telerik:RadAjaxPanel>
+         </telerik:RadAjaxPanel>
 
    </div> 
 </asp:Content>
