@@ -22,6 +22,12 @@
  .creatuser{
      margin-left:83%;
  }
+ .search{
+      margin-left:72%;
+   /*  position:relative;
+     left:83%;
+*/
+ }
 </style>
 </asp:Content>
 
@@ -41,10 +47,20 @@
         <br /><br>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
-   
+           
+                 
             <div class="container">
-                 <div class="creatuser">
-             <telerik:RadButton ID="RadButton1" runat="server" Text="Created User" OnClick="RadButton1_Click"/> </div><br />
+             <div class="search">
+                 <telerik:RadTextBox ID="txtusername"  runat="server" DisplayText="Username"></telerik:RadTextBox>
+                 <telerik:RadButton ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click"></telerik:RadButton>
+                
+             </div>
+                 <br />
+              <div class="creatuser">
+             <telerik:RadButton ID="RadButton1" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
+                <br />
+              
+              </div><br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">

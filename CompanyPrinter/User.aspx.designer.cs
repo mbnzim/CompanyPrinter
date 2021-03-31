@@ -42,6 +42,24 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadAjaxPanel radAjxPanelMain;
 
         /// <summary>
+        /// txtusername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtusername;
+
+        /// <summary>
+        /// btnsearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadButton btnsearch;
+
+        /// <summary>
         /// RadButton1 control.
         /// </summary>
         /// <remarks>

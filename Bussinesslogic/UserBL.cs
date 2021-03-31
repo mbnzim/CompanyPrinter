@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess; 
-using BussinessObject;   
+using BussinessObject;
+using Telerik.Web.UI;
 
 namespace Bussinesslogic
 {
@@ -64,6 +65,21 @@ namespace Bussinesslogic
                 throw ex;
             }
         }
+
+
+        public void SearchPrinters(RadGrid radGrid, int printermakeID, DateTime timefrom, DateTime timeto)
+        {
+            try
+            {
+                UserDA userDA = new UserDA();
+                userDA.searchPrinters(radGrid, printermakeID, timefrom, timeto);             
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         //===============================PrinterMake==============================
 

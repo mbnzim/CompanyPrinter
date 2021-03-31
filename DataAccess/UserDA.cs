@@ -88,6 +88,28 @@ namespace DataAccess
             }
         }
 
+        public void searchUser(RadGrid radGrid, string username)
+        {
+            try
+            {
+                con.Open();
+                string searchQuery = "SELECT * FROM  Users WHERE UserName = '" + username + "'";
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                radGrid.DataSourceID = null;
+                radGrid.DataSource = dt;
+                radGrid.DataBind();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
 
         public void deleteUser(String Username)
         {

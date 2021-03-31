@@ -82,7 +82,7 @@
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
-                          <Selecting AllowRowSelect="True" />
+                      <Selecting AllowRowSelect="True" />
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
@@ -122,10 +122,7 @@
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
         </div>
         </div>   
-    </div>
-
-      
-       
+    </div>     
         <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

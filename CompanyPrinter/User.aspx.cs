@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataAccess;
+using Telerik.Web.UI;
 
 namespace CompanyPrinter
 {
@@ -17,6 +19,12 @@ namespace CompanyPrinter
         protected void RadButton1_Click(object sender, EventArgs e)
         {
 			Response.Redirect("CreateUser.aspx");
+        }
+
+        protected void btnsearch_Click(object sender, EventArgs e)
+        {
+            UserDA userDA = new UserDA();
+            userDA.searchUser(RadGrid1, txtusername.Text);
         }
     }
 }
