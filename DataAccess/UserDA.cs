@@ -23,6 +23,7 @@ namespace DataAccess
             {
                 string insertQuery = "insert into Users(LastName,FirstName,DesignationID,Email,UserName,Password,Address,DOB,CreatedDate)values (@lastname,@firstname,@designationid,@email,@username,@password,@address,@dob,@createddate)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
+               // cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@lastname", reg.LastName);
                 cmd.Parameters.AddWithValue("@firstname", reg.FirstName);
                 cmd.Parameters.AddWithValue("@designationid", reg.DesignationID);
@@ -93,8 +94,10 @@ namespace DataAccess
             try
             {
                 con.Open();
-                string searchQuery = "SELECT * FROM  Users WHERE UserName = '" + username + "'";
-                SqlCommand cmd = new SqlCommand(searchQuery, con);
+               // string searchQuery = "SELECT * FROM  Users WHERE UserName = '" + username + "'";
+                SqlCommand cmd = new SqlCommand("dbo.searchUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", username);
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
