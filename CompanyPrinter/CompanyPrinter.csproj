@@ -83,6 +83,7 @@
     <Content Include="Login.aspx" />
     <Content Include="popup.js" />
     <Content Include="Printer.aspx" />
+    <Content Include="updatePrinterspopup.aspx" />
     <Content Include="UpdateUser.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Users.aspx" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="CreateUser.aspx.designer.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updatePrinterspopup.aspx.cs">
+      <DependentUpon>updatePrinterspopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatePrinterspopup.aspx.designer.cs">
+      <DependentUpon>updatePrinterspopup.aspx</DependentUpon>
     </Compile>
     <Compile Include="UpdateUser.aspx.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>

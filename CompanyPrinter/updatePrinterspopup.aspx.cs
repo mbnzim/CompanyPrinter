@@ -4,20 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BussinessObject;
+using DataAccess;
 
 namespace CompanyPrinter
 {
-    public partial class addprinter_pop : System.Web.UI.Page
+    public partial class updatePrinterspopup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                txtprintername1.Text = Session["PrinterName"].ToString();
+                txtfoldertomonitor1.Text = Session["FolderToMonitor"].ToString();
+                txtoutputtype1.Text = Session["OutputType"].ToString();
+                txtfileoutput1.Text = Session["FileOutput"].ToString();
+                
+            }
+            
         }
 
         protected void btnAddPrinter_Click(object sender, EventArgs e)
         {
-
-            BussinessObject.Printer printer = new BussinessObject.Printer();
+            int printerId = Convert.ToInt32(Session["EngenPrintersID"]);
+            PrinterUpdate printer = new PrinterUpdate();
 
             printer.PrinterName = txtprintername1.Text;
             printer.FolderToMonitor = txtfoldertomonitor1.Text;
@@ -25,6 +35,7 @@ namespace CompanyPrinter
             printer.FileOutput = txtfileoutput1.Text;
             printer.PrinterMakeID = Convert.ToInt32(cbprintermake1.SelectedValue);
             printer.CreatedDate = DateTime.Now;
+         
 
             if (radactive.Checked)
             {
@@ -35,13 +46,8 @@ namespace CompanyPrinter
                 printer.Active = 0;
             }
 
-            Bussinesslogic.UserBL userBL = new Bussinesslogic.UserBL();
-
-            int result = userBL.SavePrinter(printer);
-            if (result > 0)
-            {              
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Printer has been added successfully')", true);
-            }
+            UserDA userDA = new UserDA();
+            userDA.UpdatePrinter(printer, printerId);
         }
     }
 }

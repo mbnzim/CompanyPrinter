@@ -97,8 +97,9 @@
                   <%--<input type = "button" id="btnShowLogin" value = "Add Printer" />--%>
               <%--<telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
                 <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
-                   <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
-                      <br /><br />
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
+                <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>
+                <br /><br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" 
                       DataSourceID="SqlDataSource2" Width="1016px"  
                       AllowPaging="True" 
@@ -106,12 +107,15 @@
                       AllowFilteringByColumn= "True" 
                       CssClass="auto-style1"> 
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                      <ExportSettings>
+                          <Pdf PageWidth="">
+                          </Pdf>
+                      </ExportSettings>
                       <ClientSettings Selecting-AllowRowSelect="true">
                       <Selecting AllowRowSelect="True" />
                       </ClientSettings>
-                      <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
+                      <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2" DataKeyNames="EngenPrintersID">
                           <Columns>
-                               <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" /> 
                               <telerik:GridBoundColumn DataField="PrinterName" FilterControlAltText="Filter PrinterName column" HeaderText="PrinterName" SortExpression="PrinterName" UniqueName="PrinterName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FolderToMonitor" FilterControlAltText="Filter FolderToMonitor column" HeaderText="FolderToMonitor" SortExpression="FolderToMonitor" UniqueName="FolderToMonitor">
@@ -124,79 +128,21 @@
                               </telerik:GridCheckBoxColumn>
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                              <telerik:GridButtonColumn ButtonType="ImageButton"  CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
-                                  ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn"  />
-                              </telerik:GridButtonColumn> 
-
-                             <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
-                                  ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>--%>
-
-                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
-                                  ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
                               
                                 <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" Text="Delete" UniqueName="DeleteColumn"/>--%>
+
+                               <telerik:GridBoundColumn DataField="EngenPrintersID" DataType="System.Int32" FilterControlAltText="Filter EngenPrintersID column" HeaderText="EngenPrintersID" ReadOnly="True" SortExpression="EngenPrintersID" UniqueName="EngenPrintersID" Display="False">
+                               </telerik:GridBoundColumn>
 
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID] FROM [Printers]"></asp:SqlDataSource>
         </div>
         </div> 
-      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx"></telerik:RadWindow>
-    </div>     
-       <%-- <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;</button>
-                        <h4 class="modal-title" id="ModalTitle">  Add Printer</h4> </div>
-
-            <div class="modal-body">
-                <label for="txtprintername"> Printer Name</label>
-                <asp:TextBox ID="txtprintername" runat="server" CssClass="form-control" placeholder="Enter Username" />
-                <br />
-
-                <label for="txtfoldertomonitor"> Folder To Monitor</label>
-                  <asp:TextBox ID="txtfoldertomonitor" runat="server" CssClass="form-control" placeholder="Enter Username" />
-                <br />
-
-                <label for="txtoutputtype"> Out put Type</label>
-                    <asp:TextBox ID="txtoutputtype" runat="server" CssClass="form-control" placeholder="Enter Username"/>
-                <br />
-
-                <label for="txtfileoutput"> File Ou tput</label>
-                <asp:TextBox ID="txtfileoutput" runat="server" CssClass="form-control" placeholder="Enter Username"/>
-                <br />
-
-                 <label for="txtprinterMake"> Printer Make</label>
-                  <telerik:RadComboBox ID="cbprintermake" runat="server" DataSourceID="SqlDataSource3" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="200px"></telerik:RadComboBox>
-                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
-                <br />
-                <br />
-                <asp:RadioButton ID="radactive" runat="server"  text="Active" GroupName="rd"/>
-                <asp:RadioButton ID="radinactive" runat="server"  text="Inactive" GroupName="rd"/>
-
-                <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
-                    <strong>Error!</strong>
-                    <asp:Label ID="lblMessage" runat="server" />
-                </div>
-                </div>
-               <div class="modal-footer">             
-                    <asp:Button ID="btnSave" Text="Save" runat="server"  OnClick="SaveButton" Class="btn btn-primary"  data-dismiss="modal" />
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Clear</button>
-                </div>
-              </div>
-             </div>
-          </div>--%>
+      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+     <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+        </div>     
        </telerik:RadAjaxPanel>      
    </div> 
 </asp:Content>

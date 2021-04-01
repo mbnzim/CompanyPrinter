@@ -18,7 +18,12 @@ namespace CompanyPrinter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtusername.Text = (string)Session["User"];
+            if (!IsPostBack)
+            {
+                txtusername.Text = (string)Session["User"];
+            }
+           
+
         }
 
         //protected void RadGrid1_ItemDataBound(object sender, GridItemEventArgs e)
@@ -31,36 +36,6 @@ namespace CompanyPrinter
         //        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('')", true);
         //    }
         //}
-
-        protected void SaveButton(object sender, EventArgs e)
-        {
-
-            BussinessObject.Printer printer = new BussinessObject.Printer();
-         
-            printer.PrinterName = txtprintername.Text;
-            printer.FolderToMonitor = txtfoldertomonitor.Text;
-            printer.OutputType = txtoutputtype.Text;
-            printer.FileOutput = txtfileoutput.Text;
-            printer.PrinterMakeID = Convert.ToInt32(cbprintermake.SelectedValue);
-            printer.CreatedDate = DateTime.Now;
-
-            if (radactive.Checked)
-            {
-                printer.Active = 1;
-            }
-            else
-            {
-                printer.Active = 0;
-            }
-
-            Bussinesslogic.UserBL userBL = new Bussinesslogic.UserBL();
-
-            int result = userBL.SavePrinter(printer);
-            if (result > 0)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Printer has been added successfully')", true);
-            }
-        }
 
         protected void Search_Button(object sender, EventArgs e)
         {
@@ -78,6 +53,22 @@ namespace CompanyPrinter
 
         protected void deletePrinter_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void UpdatePrinter_Click(object sender, EventArgs e)
+        {
+            foreach (Telerik.Web.UI.GridDataItem printerVal in RadGrid1.SelectedItems)
+            {
+                Session["EngenPrintersID"] = Convert.ToInt32(printerVal["EngenPrintersID"].Text);
+                Session["PrinterName"] = Convert.ToString(printerVal["PrinterName"].Text);
+                Session["FolderToMonitor"] = Convert.ToString(printerVal["FolderToMonitor"].Text);
+                Session["OutputType"] = Convert.ToString(printerVal["OutputType"].Text);
+                Session["FileOutput"] = Convert.ToString(printerVal["FileOutput"].Text);
+             
+            }
+            string script = "function f(){Open('" + updatePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
 
         }
     }

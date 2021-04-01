@@ -18,4 +18,17 @@ namespace BussinessObject
 
         public virtual PrinterMake PrinterMake { get; set; }
     }
+
+    public class PrinterUpdate
+    {
+        public string PrinterName { get; set; }
+        public string FolderToMonitor { get; set; }
+        public string OutputType { get; set; }
+        public string FileOutput { get; set; }
+        public Nullable<int> PrinterMakeID { get; set; }
+        public byte Active { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+
+    }
 }

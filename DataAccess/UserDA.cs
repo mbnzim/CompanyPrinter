@@ -193,7 +193,7 @@ namespace DataAccess
         {
             try
             {
-                string insertQuery = "insert into Printers(PrinterName,FolderToMonitor,OutputType,FileOutput,PrinterMakeID,Active,CreatedDate)values (@PrinterName,@FolderToMonitor,@OutputType,@FileOutput,@PrinterMakeID,@Active,@CreatedDate)";
+                string insertQuery = "insert into Printers (PrinterName,FolderToMonitor,OutputType,FileOutput,PrinterMakeID,Active,CreatedDate)values (@PrinterName,@FolderToMonitor,@OutputType,@FileOutput,@PrinterMakeID,@Active,@CreatedDate)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
                 cmd.Parameters.AddWithValue("@PrinterName", printer.PrinterName);
                 cmd.Parameters.AddWithValue("@FolderToMonitor", printer.FolderToMonitor);
@@ -234,6 +234,30 @@ namespace DataAccess
                 throw ex;
             }
 
+        }
+
+        public int UpdatePrinter(PrinterUpdate printer,int printid)
+        {
+            try
+            {
+                con.Open();
+                string updateQuery = "UPDATE Printers SET PrinterName=@PrinterName, FolderToMonitor=@FolderToMonitor, OutputType=@OutputType, FileOutput=@FileOutput, PrinterMakeID=@PrinterMakeID, Active=@Active Where EngenPrintersID='"+printid +"'";
+                SqlCommand cmd = new SqlCommand(updateQuery, con);
+                cmd.Parameters.AddWithValue("@PrinterName",printer.PrinterName);
+                cmd.Parameters.AddWithValue("@FolderToMonitor", printer.FolderToMonitor);
+                cmd.Parameters.AddWithValue("@OutputType", printer.OutputType);
+                cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
+                cmd.Parameters.AddWithValue("@PrinterMakeID", printer.PrinterMakeID);
+                cmd.Parameters.AddWithValue("@Active", printer.Active);
+
+                int Result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }
