@@ -25,18 +25,6 @@ namespace CompanyPrinter
            
 
         }
-
-        //protected void RadGrid1_ItemDataBound(object sender, GridItemEventArgs e)
-        //{
-        //    if (e.Item is GridDataItem)
-        //    {
-        //        GridDataItem item = (GridDataItem)e.Item;
-        //        ImageButton imgbtn = (ImageButton)item["DeleteColumn"].Controls[0];
-        //        imgbtn.Attributes.Add("OnClick", "return Click('" + item.ItemIndex + "');");
-        //        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('')", true);
-        //    }
-        //}
-
         protected void Search_Button(object sender, EventArgs e)
         {
             UserBL userBL = new UserBL();
