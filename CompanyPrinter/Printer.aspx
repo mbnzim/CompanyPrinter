@@ -28,7 +28,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
-   <div>
+       <div>
        <div class="userloggedin">
            <asp:Label ID="txtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
        </div>
@@ -39,13 +39,14 @@
        </div>  
       
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
-              <script type="text/javascript">
+     <%--         <script type="text/javascript">
                   $(function () {
                       $("#btnShowLogin").click(function () {
                           $('#LoginModal').modal('show');
                       });
                   });
-              </script> 
+              </script>--%>
+        <script src="popup.js"></script>
         <br/><br/>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
@@ -93,12 +94,17 @@
                     </table>
                   </telerik:RadCard>     
                 </div>      
-                  <input type = "button" id="btnShowLogin" value = "Add Printer" />
-              <%--  <telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
-                   <telerik:RadButton ID="RadButton3" runat="server" Text="Delete"></telerik:RadButton>
-                      <br />
-                        <br />
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <%--<input type = "button" id="btnShowLogin" value = "Add Printer" />--%>
+              <%--<telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
+                <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
+                   <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
+                      <br /><br />
+                  <telerik:RadGrid ID="RadGrid1" runat="server" 
+                      DataSourceID="SqlDataSource2" Width="1016px"  
+                      AllowPaging="True" 
+                      AllowMultiRowSelection="True" 
+                      AllowFilteringByColumn= "True" 
+                      CssClass="auto-style1"> 
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
                       <Selecting AllowRowSelect="True" />
@@ -124,25 +130,29 @@
                                   <ItemStyle CssClass="ButtonColumn"  />
                               </telerik:GridButtonColumn> 
 
-                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
+                             <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
                                   ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
+                              </telerik:GridButtonColumn>--%>
 
                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
                                   ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
                               </telerik:GridButtonColumn>
+                              
+                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" Text="Delete" UniqueName="DeleteColumn"/>--%>
+
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate] FROM [Printers]"></asp:SqlDataSource>
         </div>
-        </div>   
+        </div> 
+      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx"></telerik:RadWindow>
     </div>     
-        <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+       <%-- <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -186,7 +196,7 @@
                 </div>
               </div>
              </div>
-          </div>
+          </div>--%>
        </telerik:RadAjaxPanel>      
    </div> 
 </asp:Content>

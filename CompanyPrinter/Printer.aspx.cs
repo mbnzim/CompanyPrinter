@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using DataAccess;
 using Bussinesslogic;
+using Telerik.Web.UI;
 
 namespace CompanyPrinter
 {
@@ -18,12 +19,19 @@ namespace CompanyPrinter
         protected void Page_Load(object sender, EventArgs e)
         {
             txtusername.Text = (string)Session["User"];
-            //if (this.Page.User.Identity.IsAuthenticated)
-            //{
-            //    //Response.Redirect(FormsAuthentication.DefaultUrl);
-                
-            //}
         }
+
+        //protected void RadGrid1_ItemDataBound(object sender, GridItemEventArgs e)
+        //{
+        //    if (e.Item is GridDataItem)
+        //    {
+        //        GridDataItem item = (GridDataItem)e.Item;
+        //        ImageButton imgbtn = (ImageButton)item["DeleteColumn"].Controls[0];
+        //        imgbtn.Attributes.Add("OnClick", "return Click('" + item.ItemIndex + "');");
+        //        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('')", true);
+        //    }
+        //}
+
         protected void SaveButton(object sender, EventArgs e)
         {
 
@@ -58,6 +66,19 @@ namespace CompanyPrinter
         {
             UserBL userBL = new UserBL();
             userBL.SearchPrinters(RadGrid1, Convert.ToInt32(txtprintermake.SelectedValue), (DateTime)timestapfrom.SelectedDate, (DateTime)timestapto.SelectedDate);
+        }
+
+ 
+
+        protected void AddPrinter_Click(object sender, EventArgs e)
+        {
+            string script = "function f(){Open('" + addPrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
+        }
+
+        protected void deletePrinter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

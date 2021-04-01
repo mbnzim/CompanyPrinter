@@ -11,26 +11,35 @@ namespace CompanyPrinter
 {
 
 
-    public partial class Printer
+    public partial class addprinter_pop
     {
 
         /// <summary>
-        /// rad1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxLoadingPanel rad1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtusername control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtusername;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// RadLabel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel RadLabel5;
 
         /// <summary>
         /// RadLabel1 control.
@@ -42,22 +51,13 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel RadLabel1;
 
         /// <summary>
-        /// radAjxPanelMain control.
+        /// txtprintername1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel radAjxPanelMain;
-
-        /// <summary>
-        /// RadCard1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadCard RadCard1;
+        protected global::Telerik.Web.UI.RadTextBox txtprintername1;
 
         /// <summary>
         /// RadLabel2 control.
@@ -69,22 +69,13 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel RadLabel2;
 
         /// <summary>
-        /// txtprintermake control.
+        /// txtfoldertomonitor1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox txtprintermake;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::Telerik.Web.UI.RadTextBox txtfoldertomonitor1;
 
         /// <summary>
         /// RadLabel3 control.
@@ -96,13 +87,31 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel RadLabel3;
 
         /// <summary>
-        /// timestapfrom control.
+        /// txtoutputtype1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker timestapfrom;
+        protected global::Telerik.Web.UI.RadTextBox txtoutputtype1;
+
+        /// <summary>
+        /// RadLabel6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel RadLabel6;
+
+        /// <summary>
+        /// txtfileoutput1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtfileoutput1;
 
         /// <summary>
         /// RadLabel4 control.
@@ -114,31 +123,40 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel RadLabel4;
 
         /// <summary>
-        /// timestapto control.
+        /// cbprintermake1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker timestapto;
+        protected global::Telerik.Web.UI.RadComboBox cbprintermake1;
 
         /// <summary>
-        /// SearchButton control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton SearchButton;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// RadButton4 control.
+        /// radactive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton4;
+        protected global::System.Web.UI.WebControls.RadioButton radactive;
+
+        /// <summary>
+        /// radinactive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radinactive;
 
         /// <summary>
         /// btnAddPrinter control.
@@ -148,41 +166,5 @@ namespace CompanyPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnAddPrinter;
-
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnDelete;
-
-        /// <summary>
-        /// RadGrid1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid RadGrid1;
-
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-
-        /// <summary>
-        /// addPrinterPopup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadWindow addPrinterPopup;
     }
 }

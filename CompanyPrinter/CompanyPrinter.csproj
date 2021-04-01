@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addprinter_pop.aspx" />
     <Content Include="Designation.aspx" />
     <Content Include="Desinations.aspx" />
     <Content Include="Documents.aspx" />
@@ -80,6 +81,7 @@
     <Content Include="Images\add.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Login.aspx" />
+    <Content Include="popup.js" />
     <Content Include="Printer.aspx" />
     <Content Include="UpdateUser.aspx" />
     <Content Include="User.aspx" />
@@ -89,6 +91,13 @@
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addprinter_pop.aspx.cs">
+      <DependentUpon>addprinter_pop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addprinter_pop.aspx.designer.cs">
+      <DependentUpon>addprinter_pop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Designation.aspx.cs">
       <DependentUpon>Designation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
