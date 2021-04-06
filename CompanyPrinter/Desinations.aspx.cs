@@ -14,7 +14,18 @@ namespace CompanyPrinter
             lbtxtusername.Text = (string)Session["User"];
         }
 
-        protected void RadButton1_Click(object sender, EventArgs e)
+ 
+        protected void Add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
         {
 
         }

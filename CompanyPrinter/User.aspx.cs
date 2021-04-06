@@ -26,5 +26,10 @@ namespace CompanyPrinter
             UserDA userDA = new UserDA();
             userDA.searchUser(RadGrid1, txtusername.Text);
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

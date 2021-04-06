@@ -42,6 +42,7 @@ namespace CompanyPrinter
             {              
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Printer has been added successfully')", true);
             }
+            Server.TransferRequest(Request.Url.AbsolutePath, false);
         }
     }
 }

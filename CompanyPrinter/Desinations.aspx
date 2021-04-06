@@ -52,13 +52,18 @@
       
       
        
-        <br /><br>
+       <br /><br><br /><br>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
    
             <div class="auto-style3">
                  <div class="creatuser">
-             <telerik:RadButton ID="RadButton1" runat="server" Text="Add Designation" OnClick="RadButton1_Click"/> </div><br />
+            <%--<telerik:RadButton ID="btnAdd" runat="server" Text="Add Designation" OnClick="Add_Click"/> </div><br />
+            <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="Update_Click"/> </div><br />--%>
+            <telerik:RadButton ID="btnAdd" runat="server" Text="Add Designation" OnClick="Add_Click"/>
+             <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="Update_Click"/>
+              <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="Delete_Click"/>
+                 </div><br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
@@ -88,7 +93,7 @@
         </div>
        </div>
     </div>   
-       </telerik:RadAjaxPanel>
+        </telerik:RadAjaxPanel>
 
    </div> 
 </asp:Content>

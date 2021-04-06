@@ -49,11 +49,11 @@
       
       
        
-        <br /><br>
+        <br /><br> 
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
            
-                 
+            <br /><br><br /><br>
             <div class="container">
              <div class="search">
                   <telerik:RadButton ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click"></telerik:RadButton>
@@ -62,6 +62,7 @@
                  <br />
               <div class="creatuser">
                 <telerik:RadButton ID="btnCreateuser" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
+                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
                 <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" /> 
                <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> 
                 <br />

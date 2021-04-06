@@ -15,7 +15,6 @@ namespace DataAccess
     public class UserDA
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CompanyPrinterDB"].ToString());
-
         //======================================================Users==============================================
         public int AddNewUser(CreateUser reg)
         {
@@ -223,15 +222,15 @@ namespace DataAccess
             try
             {
                 con.Open();
-                string updateQuery = "UPDATE Printers SET PrinterName=@PrinterName, FolderToMonitor=@FolderToMonitor, OutputType=@OutputType, FileOutput=@FileOutput, PrinterMakeID=@PrinterMakeID, Active=@Active Where EngenPrintersID='"+printid +"'";
-                SqlCommand cmd = new SqlCommand(updateQuery, con);
+                SqlCommand cmd = new SqlCommand("dbo.UpdatePrinter", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PrintersID", printid);
                 cmd.Parameters.AddWithValue("@PrinterName",printer.PrinterName);
                 cmd.Parameters.AddWithValue("@FolderToMonitor", printer.FolderToMonitor);
                 cmd.Parameters.AddWithValue("@OutputType", printer.OutputType);
                 cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
                 cmd.Parameters.AddWithValue("@PrinterMakeID", printer.PrinterMakeID);
                 cmd.Parameters.AddWithValue("@Active", printer.Active);
-
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
