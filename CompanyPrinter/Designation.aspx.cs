@@ -83,7 +83,7 @@ namespace CompanyPrinter
 
         protected void BtnDisplay_Click(object sender, EventArgs e)
         {
-            userDA.displayDesignation(GridView1);
+           // userDA.displayDesignation(GridView1);
         }
     }
 }

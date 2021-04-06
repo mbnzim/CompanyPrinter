@@ -29,7 +29,7 @@ namespace CompanyPrinter
 
         protected void BtnDisplay_Click(object sender, EventArgs e)
         {
-            userDA.displayAllUsers(GridView1);
+         //   userDA.displayAllUsers(GridView1);
         }
 
         protected void BtnUAdd_Click(object sender, EventArgs e)

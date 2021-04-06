@@ -122,7 +122,7 @@
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
-        <telerik:RadMenu ID="RadMenu1" runat="server" Flow="Vertical" CssClass="auto-style2">
+        <telerik:RadMenu ID="RadMenu1" runat="server" Flow="horizontal" CssClass="auto-style2">
             <Items>
                 <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="Printer.aspx">
                 <%--    <Items>

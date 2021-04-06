@@ -21,9 +21,9 @@ namespace DataAccess
         {
             try
             {
-                string insertQuery = "insert into Users(LastName,FirstName,DesignationID,Email,UserName,Password,Address,DOB,CreatedDate)values (@lastname,@firstname,@designationid,@email,@username,@password,@address,@dob,@createddate)";
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-               // cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.AddNewUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@lastname", reg.LastName);
                 cmd.Parameters.AddWithValue("@firstname", reg.FirstName);
                 cmd.Parameters.AddWithValue("@designationid", reg.DesignationID);
@@ -33,7 +33,7 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@address", reg.Address);
                 cmd.Parameters.AddWithValue("@dob", reg.DOB);
                 cmd.Parameters.AddWithValue("@createddate", reg.CreatedDate);
-                con.Open();
+             
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
@@ -44,26 +44,26 @@ namespace DataAccess
             }
         }
 
-        public void displayAllUsers(GridView gridview)
-        {
-            try
-            {
-                con.Open();
-                string displayQuery = "select * from Users";
-                SqlCommand cmd = new SqlCommand(displayQuery, con);
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                gridview.DataSource = dt;
-                gridview.DataBind();
-                con.Close();
-            }catch(Exception ex)
-            {
-                throw ex;
-            }
+        //public void displayAllUsers(GridView gridview)
+        //{
+        //    try
+        //    {
+        //        con.Open();
+        //        string displayQuery = "select * from Users";
+        //        SqlCommand cmd = new SqlCommand(displayQuery, con);
+        //        cmd.ExecuteNonQuery();
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(dt);
+        //        gridview.DataSource = dt;
+        //        gridview.DataBind();
+        //        con.Close();
+        //    }catch(Exception ex)
+        //    {
+        //        throw ex;
+        //    }
           
-        }
+        //}
 
         public int UpdateUser(String username, CreateUser registration)
         {
@@ -94,7 +94,6 @@ namespace DataAccess
             try
             {
                 con.Open();
-               // string searchQuery = "SELECT * FROM  Users WHERE UserName = '" + username + "'";
                 SqlCommand cmd = new SqlCommand("dbo.searchUser", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@username", username);
@@ -152,28 +151,6 @@ namespace DataAccess
             }
         }
 
-        public void displayDesignation(GridView gridview )
-        {
-            try
-            {
-                con.Open();
-                string displayQuery = "select * from Designations";
-                SqlCommand cmd = new SqlCommand(displayQuery, con);
-                cmd.ExecuteNonQuery();
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                gridview.DataSource = dt;
-                gridview.DataBind();
-                con.Close();
-            }catch(Exception ex)
-            {
-                throw ex;
-            }
-   
-        }
-
-
         public void deleteDesignation(String designationName)
         {
             try
@@ -196,17 +173,16 @@ namespace DataAccess
         {
             try
             {
-                string insertQuery = "insert into Printers (PrinterName,FolderToMonitor,OutputType,FileOutput,PrinterMakeID,Active,CreatedDate)values (@PrinterName,@FolderToMonitor,@OutputType,@FileOutput,@PrinterMakeID,@Active,@CreatedDate)";
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.AddPrinters", con);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@PrinterName", printer.PrinterName);
                 cmd.Parameters.AddWithValue("@FolderToMonitor", printer.FolderToMonitor);
                 cmd.Parameters.AddWithValue("@OutputType", printer.OutputType);
                 cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
                 cmd.Parameters.AddWithValue("@PrinterMakeID", printer.PrinterMakeID);
                 cmd.Parameters.AddWithValue("@Active", printer.Active);
-                cmd.Parameters.AddWithValue("@CreatedDate", printer.CreatedDate);
-
-                con.Open();
+                cmd.Parameters.AddWithValue("@CreatedDate", printer.CreatedDate);            
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
@@ -221,8 +197,11 @@ namespace DataAccess
             try
             {
                 con.Open();
-                string searchQuery =  "SELECT* FROM  Printers WHERE CreatedDate BETWEEN '"+timefrom+"' and '"+ timeto + "' AND PrinterMakeID = '"+ printermakeID + "'";
-                SqlCommand cmd = new SqlCommand(searchQuery, con);
+                SqlCommand cmd = new SqlCommand("dbo.searchPrinters", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@printermakeid", printermakeID);
+                cmd.Parameters.AddWithValue("@timefrom ", timefrom);
+                cmd.Parameters.AddWithValue("@timeto", timeto);
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
