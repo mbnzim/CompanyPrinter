@@ -9,7 +9,7 @@ namespace BussinessObject
 {
     public class Designation
     {
-        [Required(ErrorMessage ="Designation Name Required")]
+        //[Required(ErrorMessage ="Designation Name Required")]
         public string DesignationName { get; set; }
     }
 }

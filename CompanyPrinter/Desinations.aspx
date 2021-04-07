@@ -15,7 +15,7 @@
             }
         }
     </script>
-   
+   <script src="popup.js"></script>
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
@@ -40,6 +40,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
+    <%-- <script src="popup.js"></script>--%>
    <div>
         <div class="userloggedin">
            <asp:Label ID="lbtxtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
@@ -92,9 +93,9 @@
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [DesignationName] FROM [Designations]"></asp:SqlDataSource>
         </div>
        </div>
-    </div>   
+    </div>  
+    <telerik:RadWindow ID="adddesignationpopup" runat="server" NavigateUrl="adddesignation_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
         </telerik:RadAjaxPanel>
-
    </div> 
 </asp:Content>
 

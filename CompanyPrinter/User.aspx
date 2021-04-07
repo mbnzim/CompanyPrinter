@@ -13,7 +13,7 @@
             }
         }
     </script>
-   
+    <script src="popup.js"></script>
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
@@ -68,14 +68,17 @@
                 <br />
               
               </div><br />
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <telerik:RadGrid ID="userRd" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                      <ExportSettings>
+                          <Pdf PageWidth="">
+                          </Pdf>
+                      </ExportSettings>
                      <ClientSettings Selecting-AllowRowSelect="true">
                       <Selecting AllowRowSelect="True" />
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
-                              <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" /> 
                               <telerik:GridBoundColumn DataField="LastName" FilterControlAltText="Filter LastName column" HeaderText="LastName" SortExpression="LastName" UniqueName="LastName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FirstName" FilterControlAltText="Filter FirstName column" HeaderText="FirstName" SortExpression="FirstName" UniqueName="FirstName">
@@ -88,28 +91,29 @@
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="DOB" DataType="System.DateTime" FilterControlAltText="Filter DOB column" HeaderText="DOB" SortExpression="DOB" UniqueName="DOB">
                               </telerik:GridBoundColumn>
-                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
-                                  ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn> 
+                          <%--     <telerik:GridBoundColumn DataField="UserID" DataType="System.Int32" FilterControlAltText="Filter UserID column" HeaderText="UserID" ReadOnly="True" SortExpression="UserID" UniqueName="UserID" Visible="False">
+                              </telerik:GridBoundColumn>
+                              <telerik:GridBoundColumn DataField="DesignationID" DataType="System.Int32" FilterControlAltText="Filter DesignationID column" HeaderText="DesignationID" SortExpression="DesignationID" UniqueName="DesignationID" Visible="False">
+                              </telerik:GridBoundColumn>--%>
 
-                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
-                                  ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
+                             
+                              <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
+                              </telerik:GridBoundColumn>
+
+                             
+                              <telerik:GridBoundColumn DataField="Password" FilterControlAltText="Filter Password column" HeaderText="Password" SortExpression="Password" UniqueName="Password"  Display="False">
+                              </telerik:GridBoundColumn>
 
                              
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB] FROM [Users]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB], [CreatedDate], [Password] FROM [Users]"></asp:SqlDataSource>
         </div>
        </div>
     </div>   
          </telerik:RadAjaxPanel>
-
+       <telerik:RadWindow ID="userupdatepopup" runat="server" NavigateUrl="updateuser_popup.aspx" VisibleStatusbar="False" Height="334px" Width="318px"></telerik:RadWindow>
    </div> 
 </asp:Content>
 

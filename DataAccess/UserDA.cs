@@ -15,6 +15,7 @@ namespace DataAccess
     public class UserDA
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CompanyPrinterDB"].ToString());
+
         //======================================================Users==============================================
         public int AddNewUser(CreateUser reg)
         {
@@ -69,14 +70,18 @@ namespace DataAccess
             try
             {
                 con.Open();
-                string updateQuery = "UPDATE Users SET LastName = @lastname,FirstName = @firstname,Email = @email,Password = @password,Address = @address,DOB = @dob Where UserName ='" + username + "'";
-                SqlCommand cmd = new SqlCommand(updateQuery, con);
+                //string updateQuery = "UPDATE Users SET LastName = @lastname,FirstName = @firstname,Email = @email,Password = @password,Address = @address,DOB = @dob Where UserName ='" + username + "'";
+                SqlCommand cmd = new SqlCommand("dbo.UpdateUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@lastname", registration.LastName);
                 cmd.Parameters.AddWithValue("@firstname", registration.FirstName);
+                cmd.Parameters.AddWithValue("@designationID", registration.DesignationID);
                 cmd.Parameters.AddWithValue("@email", registration.Email);
                 cmd.Parameters.AddWithValue("@password", registration.Password);
                 cmd.Parameters.AddWithValue("@address", registration.Address);
                 cmd.Parameters.AddWithValue("@dob", registration.DOB);
+                cmd.Parameters.AddWithValue("@createddate", registration.CreatedDate);
 
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -134,11 +139,9 @@ namespace DataAccess
         {
             try
             {
-                string insertQuery = "insert into Designations(DesignationName)values (@designationName)";
-                SqlCommand cmd = new SqlCommand(insertQuery, con);
-
-                cmd.Parameters.AddWithValue("@designationName", ObjDesignation.DesignationName);
-        
+                SqlCommand cmd = new SqlCommand("dbo.AddDesignation", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@designationName", ObjDesignation.DesignationName);     
                 con.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();

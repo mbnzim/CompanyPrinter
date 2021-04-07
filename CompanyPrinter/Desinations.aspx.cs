@@ -17,7 +17,8 @@ namespace CompanyPrinter
  
         protected void Add_Click(object sender, EventArgs e)
         {
-
+            string script = "function f(){Open('" + adddesignationpopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
         }
 
         protected void Update_Click(object sender, EventArgs e)

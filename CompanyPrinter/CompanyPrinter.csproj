@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adddesignation_popup.aspx" />
     <Content Include="addprinter_pop.aspx" />
     <Content Include="Designation.aspx" />
     <Content Include="Desinations.aspx" />
@@ -85,6 +86,7 @@
     <Content Include="Printer.aspx" />
     <Content Include="updatePrinterspopup.aspx" />
     <Content Include="UpdateUser.aspx" />
+    <Content Include="updateuser_popup.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
@@ -92,6 +94,13 @@
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adddesignation_popup.aspx.cs">
+      <DependentUpon>adddesignation_popup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adddesignation_popup.aspx.designer.cs">
+      <DependentUpon>adddesignation_popup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addprinter_pop.aspx.cs">
       <DependentUpon>addprinter_pop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +171,13 @@
     </Compile>
     <Compile Include="UpdateUser.aspx.designer.cs">
       <DependentUpon>UpdateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateuser_popup.aspx.cs">
+      <DependentUpon>updateuser_popup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateuser_popup.aspx.designer.cs">
+      <DependentUpon>updateuser_popup.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
