@@ -38,7 +38,10 @@ namespace CompanyPrinter
                 Session["Address"] = Convert.ToString(printerVal["Address"].Text);
                 Session["DOB"] = Convert.ToDateTime(printerVal["DOB"].Text);
                 Session["Password"] = Convert.ToString(printerVal["Password"]);
+                //Session["DesignationID"] = Convert.ToInt32(printerVal["DesignationID"].Text);
                 Session["CreatedDate"] = Convert.ToDateTime(printerVal["CreatedDate"].Text);
+
+              
 
             }
             string script = "function f(){Open('" + userupdatepopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";

@@ -41,19 +41,25 @@ namespace CompanyPrinter
 
         protected void deletePrinter_Click(object sender, EventArgs e)
         {
-
+            foreach (GridDataItem item in RadGrid1.SelectedItems)
+            {
+                lbitemslist.Text += item["EngenPrintersID"].Text.ToString() + " " + item["PrinterName"].Text.ToString() + " ";
+                
+            }
         }
 
         protected void UpdatePrinter_Click(object sender, EventArgs e)
         {
-            foreach (Telerik.Web.UI.GridDataItem printerVal in RadGrid1.SelectedItems)
+            foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
             {
                 Session["EngenPrintersID"] = Convert.ToInt32(printerVal["EngenPrintersID"].Text);
                 Session["PrinterName"] = Convert.ToString(printerVal["PrinterName"].Text);
                 Session["FolderToMonitor"] = Convert.ToString(printerVal["FolderToMonitor"].Text);
                 Session["OutputType"] = Convert.ToString(printerVal["OutputType"].Text);
                 Session["FileOutput"] = Convert.ToString(printerVal["FileOutput"].Text);
-             
+                Session["CreatedDate"] = Convert.ToDateTime(printerVal["CreatedDate"].Text);
+
+
             }
             string script = "function f(){Open('" + updatePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);

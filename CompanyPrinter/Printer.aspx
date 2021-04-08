@@ -129,23 +129,30 @@
                               </telerik:GridCheckBoxColumn>
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
-                              <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
+                              
+                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" Text="Delete" UniqueName="DeleteColumn"/>--%>
+
+                               <telerik:GridBoundColumn DataField="EngenPrintersID" DataType="System.Int32" FilterControlAltText="Filter EngenPrintersID column" HeaderText="EngenPrintersID" SortExpression="EngenPrintersID" UniqueName="EngenPrintersID" ReadOnly="True" Display="False" >
+                               </telerik:GridBoundColumn>
+
+                               <telerik:GridBoundColumn DataField="LastModificationDate" DataType="System.DateTime" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate">
+                               </telerik:GridBoundColumn>
+
+                              <%--<telerik:GridBoundColumn DataField="PrinterMakeID" DataType="System.Int32" FilterControlAltText="Filter PrinterMakeID column" HeaderText="Printer Make" SortExpression="PrinterMakeID" UniqueName="PrinterMakeID">
+                              </telerik:GridBoundColumn>--%>
+                                 <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
                                   ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
                               </telerik:GridButtonColumn>
-                              
-                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" Text="Delete" UniqueName="DeleteColumn"/>--%>
-
-                               <telerik:GridBoundColumn DataField="EngenPrintersID" DataType="System.Int32" FilterControlAltText="Filter EngenPrintersID column" HeaderText="EngenPrintersID" SortExpression="EngenPrintersID" UniqueName="EngenPrintersID" Display="False" >
-                               </telerik:GridBoundColumn>
 
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID] FROM [Printers]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID], [LastModificationDate], [PrinterMakeID] FROM [Printers]"></asp:SqlDataSource>
         </div>
         </div> 
+            <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
       <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False"></telerik:RadWindow>
      <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
         </div>     

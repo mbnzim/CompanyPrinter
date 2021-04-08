@@ -28,14 +28,18 @@ namespace CompanyPrinter
         {
             int printerId = Convert.ToInt32(Session["EngenPrintersID"]);
             PrinterUpdate printer = new PrinterUpdate();
+            DateTime createddate = (DateTime)Session["CreatedDate"];
 
             printer.PrinterName = txtprintername1.Text;
             printer.FolderToMonitor = txtfoldertomonitor1.Text;
             printer.OutputType = txtoutputtype1.Text;
             printer.FileOutput = txtfileoutput1.Text;
             printer.PrinterMakeID = Convert.ToInt32(cbprintermake1.SelectedValue);
-            printer.CreatedDate = DateTime.Now;
-         
+            printer.Status = 1;
+            printer.CreatedDate = createddate;
+            printer.LastModificationDate = DateTime.Now;
+
+
 
             if (radactive.Checked)
             {

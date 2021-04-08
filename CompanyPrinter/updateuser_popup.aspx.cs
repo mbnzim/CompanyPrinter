@@ -22,18 +22,17 @@ namespace CompanyPrinter
                 txtfirstname.Text =  Session["FirstName"].ToString();
                 txtemail.Text =  Session["Email"].ToString();
                 txtaddress.Text =  Session["Address"].ToString();
-                //txtpassword.Text = Session["Password"].ToString();
-                //lbdob = (DateTime)Session["DOB"];
-                //Session["CreatedDate"];
-
-            }
-         
+  
+            }       
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
             DateTime dob = (DateTime)Session["DOB"];
+
             DateTime createddate = (DateTime)Session["CreatedDate"];
+
+
             CreateUser user = new CreateUser();
             user.UserName = txtusername.Text;
             user.LastName = txtlastname.Text;
@@ -41,10 +40,11 @@ namespace CompanyPrinter
             user.Email = txtemail.Text;
             user.Address = txtaddress.Text;
             user.Password = txtpassword.Text;
-            user.DesignationID = 1;
+            user.DesignationID = Convert.ToInt32(txtdesignation.SelectedValue);
             user.DOB = dob ;
             user.CreatedDate = createddate;
-
+            user.LastModificationDate = DateTime.Now;
+            
             UserDA userDA = new UserDA();
             userDA.UpdateUser(user.UserName, user);
         }

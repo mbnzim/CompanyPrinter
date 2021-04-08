@@ -33,7 +33,8 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@address", reg.Address);
                 cmd.Parameters.AddWithValue("@dob", reg.DOB);
                 cmd.Parameters.AddWithValue("@createddate", reg.CreatedDate);
-             
+                cmd.Parameters.AddWithValue("@LastModificationDate", reg.LastModificationDate);
+
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
@@ -44,33 +45,11 @@ namespace DataAccess
             }
         }
 
-        //public void displayAllUsers(GridView gridview)
-        //{
-        //    try
-        //    {
-        //        con.Open();
-        //        string displayQuery = "select * from Users";
-        //        SqlCommand cmd = new SqlCommand(displayQuery, con);
-        //        cmd.ExecuteNonQuery();
-        //        DataTable dt = new DataTable();
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        da.Fill(dt);
-        //        gridview.DataSource = dt;
-        //        gridview.DataBind();
-        //        con.Close();
-        //    }catch(Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-          
-        //}
-
         public int UpdateUser(String username, CreateUser registration)
         {
             try
             {
                 con.Open();
-                //string updateQuery = "UPDATE Users SET LastName = @lastname,FirstName = @firstname,Email = @email,Password = @password,Address = @address,DOB = @dob Where UserName ='" + username + "'";
                 SqlCommand cmd = new SqlCommand("dbo.UpdateUser", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@username", username);
@@ -82,6 +61,7 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@address", registration.Address);
                 cmd.Parameters.AddWithValue("@dob", registration.DOB);
                 cmd.Parameters.AddWithValue("@createddate", registration.CreatedDate);
+                cmd.Parameters.AddWithValue("@LastModificationDate", registration.LastModificationDate);
 
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -184,7 +164,9 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
                 cmd.Parameters.AddWithValue("@PrinterMakeID", printer.PrinterMakeID);
                 cmd.Parameters.AddWithValue("@Active", printer.Active);
-                cmd.Parameters.AddWithValue("@CreatedDate", printer.CreatedDate);            
+                cmd.Parameters.AddWithValue("@Status", printer.Status);
+                cmd.Parameters.AddWithValue("@CreatedDate", printer.CreatedDate);
+                cmd.Parameters.AddWithValue("@LastModificationDate", printer.LastModificationDate);
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
@@ -225,7 +207,7 @@ namespace DataAccess
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("dbo.UpdatePrinter", con);
+                SqlCommand cmd = new SqlCommand("dbo.UpdatePrinters", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@PrintersID", printid);
                 cmd.Parameters.AddWithValue("@PrinterName",printer.PrinterName);
@@ -234,6 +216,9 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
                 cmd.Parameters.AddWithValue("@PrinterMakeID", printer.PrinterMakeID);
                 cmd.Parameters.AddWithValue("@Active", printer.Active);
+                cmd.Parameters.AddWithValue("@Status", printer.Status);
+                cmd.Parameters.AddWithValue("@CreatedDate", printer.CreatedDate);
+                cmd.Parameters.AddWithValue("@LastModificationDate", printer.LastModificationDate);
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;

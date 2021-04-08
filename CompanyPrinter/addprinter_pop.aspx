@@ -63,7 +63,7 @@
                  <tr>
                 <td></td>
                 <td>
-                    <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Save" OnClick="btnAddPrinter_Click"></telerik:RadButton>
+                    <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Save" OnClick="btnAddPrinter_Click" Height="21px"></telerik:RadButton>
                 </td>
             </tr>
 

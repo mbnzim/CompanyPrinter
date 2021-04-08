@@ -186,6 +186,15 @@ namespace CompanyPrinter
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
+        /// lbitemslist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadLabel lbitemslist;
+
+        /// <summary>
         /// addPrinterPopup control.
         /// </summary>
         /// <remarks>

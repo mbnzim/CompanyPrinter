@@ -79,6 +79,7 @@
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
+                               <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" /> 
                               <telerik:GridBoundColumn DataField="LastName" FilterControlAltText="Filter LastName column" HeaderText="LastName" SortExpression="LastName" UniqueName="LastName">
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="FirstName" FilterControlAltText="Filter FirstName column" HeaderText="FirstName" SortExpression="FirstName" UniqueName="FirstName">
@@ -91,24 +92,30 @@
                               </telerik:GridBoundColumn>
                               <telerik:GridBoundColumn DataField="DOB" DataType="System.DateTime" FilterControlAltText="Filter DOB column" HeaderText="DOB" SortExpression="DOB" UniqueName="DOB">
                               </telerik:GridBoundColumn>
-                          <%--     <telerik:GridBoundColumn DataField="UserID" DataType="System.Int32" FilterControlAltText="Filter UserID column" HeaderText="UserID" ReadOnly="True" SortExpression="UserID" UniqueName="UserID" Visible="False">
-                              </telerik:GridBoundColumn>
-                              <telerik:GridBoundColumn DataField="DesignationID" DataType="System.Int32" FilterControlAltText="Filter DesignationID column" HeaderText="DesignationID" SortExpression="DesignationID" UniqueName="DesignationID" Visible="False">
+                            <%--   <telerik:GridBoundColumn DataField="UserID" DataType="System.Int32" FilterControlAltText="Filter UserID column" HeaderText="UserID" ReadOnly="True" SortExpression="UserID" UniqueName="UserID" Visible="False">
                               </telerik:GridBoundColumn>--%>
-
-                             
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
 
                              
-                              <telerik:GridBoundColumn DataField="Password" FilterControlAltText="Filter Password column" HeaderText="Password" SortExpression="Password" UniqueName="Password"  Display="False">
+                              <telerik:GridBoundColumn DataField="Password" FilterControlAltText="Filter Password column" HeaderText="Password" SortExpression="Password" UniqueName="Password" Display="false">
+                              </telerik:GridBoundColumn>
+                              
+                           <%--   <telerik:GridBoundColumn DataField="LastModificationDate" DataType="System.DateTime" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate">
+                              </telerik:GridBoundColumn>--%>
+                             
+                              <telerik:GridBoundColumn DataField="LastModificationDate" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate" DataType="System.DateTime">
+                              </telerik:GridBoundColumn>
+
+                             
+                              <telerik:GridBoundColumn DataField="DesignationID" DataType="System.Int32" FilterControlAltText="Filter DesignationID column" HeaderText="DesignationID" SortExpression="DesignationID" UniqueName="DesignationID" Display="false">
                               </telerik:GridBoundColumn>
 
                              
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB], [CreatedDate], [Password] FROM [Users]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB], [CreatedDate], [Password], [LastModificationDate], [DesignationID] FROM [Users]"></asp:SqlDataSource>
         </div>
        </div>
     </div>   

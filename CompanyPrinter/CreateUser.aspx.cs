@@ -42,6 +42,7 @@ namespace CompanyPrinter
             if(lbfirstname.Visible==false && lblastname.Visible==false && lbaddress.Visible==false && lbdob.Visible==false)
             {
                 CreateUser();
+                Response.Redirect("User.aspx");
             }
         }
 
@@ -58,13 +59,14 @@ namespace CompanyPrinter
             reg.Address = txtaddress.Text;
             reg.DOB = (DateTime)RadDatePicker.SelectedDate;
             reg.CreatedDate = DateTime.Now;
+            reg.LastModificationDate = DateTime.Now;
 
 
             Bussinesslogic.UserBL objUBL = new Bussinesslogic.UserBL();
             int result = objUBL.UserRegistration(reg);
             if (result > 0)
             {
-                Response.Redirect("User.aspx");
+               
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User has been created successfully')", true);
             }
         }
