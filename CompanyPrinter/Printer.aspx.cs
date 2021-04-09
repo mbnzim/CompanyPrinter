@@ -80,6 +80,10 @@ namespace CompanyPrinter
 
         protected void document_Click(object sender, EventArgs e)
         {
+            foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
+            {
+                Session["PrintersID"] = Convert.ToInt32(printerVal["EngenPrintersID"].Text);  
+           }
             string script = "function f(){Open('" + uploadDocPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
         }

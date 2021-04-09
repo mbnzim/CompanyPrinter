@@ -97,6 +97,26 @@ namespace DataAccess
 
         }
 
+        public int searchUserIDLoggedIn(string username)
+        {
+   
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.searchUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", username);
+                int Result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+      
+        }
+
         public void deleteUser(String Username)
         {
             try

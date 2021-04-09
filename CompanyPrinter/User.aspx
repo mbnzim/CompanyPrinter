@@ -36,8 +36,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
-   <div>
+    <div>
          <div class="userloggedin">
            <asp:Label ID="lbtxtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
        </div>

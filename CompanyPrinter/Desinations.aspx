@@ -74,17 +74,17 @@
                           <Columns>
                               <telerik:GridBoundColumn DataField="DesignationName" FilterControlAltText="Filter DesignationName column" HeaderText="DesignationName" SortExpression="DesignationName" UniqueName="DesignationName">
                               </telerik:GridBoundColumn>
-                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
+                       <%--         <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
                                   ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn> 
+                              </telerik:GridButtonColumn> --%>
 
-                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
+                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
                                   ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
+                              </telerik:GridButtonColumn>--%>
 
                  
                           </Columns>

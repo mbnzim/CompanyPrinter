@@ -42,13 +42,13 @@ namespace CompanyPrinter
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// RadLabel1 control.
+        /// RadLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel RadLabel1;
+        protected global::Telerik.Web.UI.RadLabel RadLabel5;
 
         /// <summary>
         /// RadUpload1 control.

@@ -18,7 +18,8 @@ namespace CompanyPrinter
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if(RadUpload1.UploadedFiles.Count >0)
+            UserDA userDA = new UserDA();
+            if (RadUpload1.UploadedFiles.Count >0)
             {
                 foreach(Telerik.Web.UI.UploadedFile doc in RadUpload1.UploadedFiles)
                 {
@@ -26,10 +27,10 @@ namespace CompanyPrinter
                     document.DocType = doc.GetExtension().ToString();
                     document.DocUrl = @"\\Files\" + doc.FileName.ToString();
                     document.userID = 1;
-                    document.printerID = 1;
+                    document.printerID = Convert.ToInt32(Session["PrintersID"]);
                     document.CreatedDate = DateTime.Now;
 
-                    UserDA userDA = new UserDA();
+                   
                     userDA.UplaodDocs(document);
                 }
             }

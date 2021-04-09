@@ -28,7 +28,7 @@
  }
     .auto-style3 {
         margin-left: 200px;
-        width: 500px;
+        width: 638px;
     }
 
      .userloggedin{
@@ -57,9 +57,15 @@
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
    
+
             <div class="auto-style3">
-          <%--       <div class="creatuser">
-             <telerik:RadButton ID="RadButton1" runat="server" Text="Add Designation" OnClick="RadButton1_Click"/> </div><br />--%>
+                  <div class="creatuser">
+                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" /> 
+           <%--    <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> --%>
+                <br /><br />
+               </div>
+
                   <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
@@ -67,6 +73,7 @@
                       </ClientSettings>
                       <MasterTableView AutoGenerateColumns="False" DataSourceID="SqlDataSource2">
                           <Columns>
+                              <telerik:GridClientSelectColumn UniqueName="ClientSelectColumn" /> 
                               <telerik:GridBoundColumn DataField="DocType" FilterControlAltText="Filter DocType column" HeaderText="DocType" SortExpression="DocType" UniqueName="DocType">
                               </telerik:GridBoundColumn>
                                 <telerik:GridBoundColumn DataField="DocUrl" FilterControlAltText="Filter DocUrl column" HeaderText="DocUrl" SortExpression="DocUrl" UniqueName="DocUrl">

@@ -50,7 +50,7 @@
                     <telerik:RadLabel ID="RadLabel4" Text="Printer Make" runat="server"></telerik:RadLabel>
                 </td>
                 <td>
-                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID"></telerik:RadComboBox>
+                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID" EmptyMessage="Select Printer Make"></telerik:RadComboBox>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
                 </td>
             </tr>

@@ -58,7 +58,7 @@
                  <telerik:RadLabel ID="RadLabel3" runat="server" Text="Designation"></telerik:RadLabel>
                </td>
                 <td>
-                    <telerik:RadComboBox ID="txtdesignation" runat="server" DataSourceID="SqlDataSource1" DataTextField="DesignationName" DataValueField="DesignationID"></telerik:RadComboBox>
+                    <telerik:RadComboBox ID="txtdesignation" runat="server" DataSourceID="SqlDataSource1" DataTextField="DesignationName" DataValueField="DesignationID" EmptyMessage="Select Designation"></telerik:RadComboBox>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [Designations]"></asp:SqlDataSource>
                 </td>
                 </tr>

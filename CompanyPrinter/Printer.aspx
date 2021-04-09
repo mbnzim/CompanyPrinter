@@ -26,7 +26,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <telerik:RadAjaxLoadingPanel ID="rad1" runat="server" Transparency="25" />
        <div>
        <div class="userloggedin">
            <asp:Label ID="txtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
@@ -52,7 +51,7 @@
                                 <telerik:RadLabel ID="RadLabel2" runat="server" Text="Printer Make" Font-Size="Small"></telerik:RadLabel>
                             </td>
                          <td class="auto-style1">
-                        <telerik:RadComboBox ID="txtprintermake" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="270px"></telerik:RadComboBox>
+                        <telerik:RadComboBox ID="txtprintermake" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID"  Width="270px" EmptyMessage="Select Printer Make"></telerik:RadComboBox>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
                     </td>
                       </tr>
@@ -132,11 +131,11 @@
 
                               <%--<telerik:GridBoundColumn DataField="PrinterMakeID" DataType="System.Int32" FilterControlAltText="Filter PrinterMakeID column" HeaderText="Printer Make" SortExpression="PrinterMakeID" UniqueName="PrinterMakeID">
                               </telerik:GridBoundColumn>--%>
-                                 <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
+                              <%--   <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
                                   ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
                                   <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                   <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>
+                              </telerik:GridButtonColumn>--%>
 
                           </Columns>
                       </MasterTableView>
@@ -145,10 +144,10 @@
         </div>
         </div> 
       <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
-      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False"></telerik:RadWindow>
-     <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
-     <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
-     <telerik:RadWindow ID="uploadDocPopup" runat="server" NavigateUrl="UploadDocument.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False" Width="359px"></telerik:RadWindow>
+     <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False" Width="360px"></telerik:RadWindow>
+     <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False" Width="360px"></telerik:RadWindow>
+     <telerik:RadWindow ID="uploadDocPopup" runat="server" NavigateUrl="UploadDocument.aspx" VisibleStatusbar="False" Width="498px"></telerik:RadWindow>
         </div>     
        </telerik:RadAjaxPanel>      
    </div> 

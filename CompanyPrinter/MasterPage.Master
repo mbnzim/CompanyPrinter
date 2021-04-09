@@ -115,30 +115,29 @@
           left: 0px;
           top: 0px;
           height: 30px;
-          width: 504px;
+          width: 469px;
       }
   </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
-        <telerik:RadMenu ID="RadMenu1" runat="server" Flow="horizontal" CssClass="auto-style2">
+     
+        <telerik:RadMenu ID="RadMenu1" runat="server" CssClass="auto-style2" DataNavigateUrlField="menuNavigation" DataSourceID="SqlDataSource1" DataTextField="menuItem">
             <Items>
-                <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="Printer.aspx">
-                <%--    <Items>
-                        <telerik:RadMenuItem runat="server" Text="Printer Make">
-                        </telerik:RadMenuItem>
-                    </Items>--%>
+                <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="~/Printer.aspx">
                </telerik:RadMenuItem>
                <telerik:RadMenuItem runat="server" Text="Users"  NavigateUrl="~/User.aspx">
               </telerik:RadMenuItem>
-              <telerik:RadMenuItem runat="server" Text="Designations" NavigateUrl="Desinations.aspx">
+              <telerik:RadMenuItem runat="server" Text="Designations" NavigateUrl="~/Desinations.aspx">
                </telerik:RadMenuItem>
-              <telerik:RadMenuItem runat="server" Text="Documents" NavigateUrl="Documents.aspx" >
+              <telerik:RadMenuItem runat="server" Text="Documents" NavigateUrl="~/Documents.aspx" >
               </telerik:RadMenuItem>
-              <telerik:RadMenuItem runat="server" Text="Logout" NavigateUrl="Login.aspx"/>
+              <telerik:RadMenuItem runat="server" Text="Logout" NavigateUrl="~/Login.aspx"/>
             </Items>
         </telerik:RadMenu>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [menuItem], [menuNavigation] FROM [Menu]"></asp:SqlDataSource>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 
