@@ -30,21 +30,12 @@
        <div>
        <div class="userloggedin">
            <asp:Label ID="txtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
-       </div>
-        
-
+       </div>   
        <div class="title2">
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Printers" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>  
       
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
-     <%--         <script type="text/javascript">
-                  $(function () {
-                      $("#btnShowLogin").click(function () {
-                          $('#LoginModal').modal('show');
-                      });
-                  });
-              </script>--%>
         <script src="popup.js"></script>
         <br/><br/>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
@@ -155,6 +146,8 @@
             <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
       <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False"></telerik:RadWindow>
      <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+            <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+  
         </div>     
        </telerik:RadAjaxPanel>      
    </div> 

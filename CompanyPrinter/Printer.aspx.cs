@@ -41,11 +41,24 @@ namespace CompanyPrinter
 
         protected void deletePrinter_Click(object sender, EventArgs e)
         {
+           // Print printer = new List<Printer>();
+            List<string> printers = new List<string>();
+
+
             foreach (GridDataItem item in RadGrid1.SelectedItems)
             {
-                lbitemslist.Text += item["EngenPrintersID"].Text.ToString() + " " + item["PrinterName"].Text.ToString() + " ";
+                printers.Add(item["PrinterName"].Text.ToString());
                 
             }
+   
+            foreach (var p in printers)
+            {
+                Session["PrinterNameDelete"] += p + " <br />";
+            }
+
+            string script = "function f(){Open('" + deletePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
+   
         }
 
         protected void UpdatePrinter_Click(object sender, EventArgs e)
@@ -58,7 +71,6 @@ namespace CompanyPrinter
                 Session["OutputType"] = Convert.ToString(printerVal["OutputType"].Text);
                 Session["FileOutput"] = Convert.ToString(printerVal["FileOutput"].Text);
                 Session["CreatedDate"] = Convert.ToDateTime(printerVal["CreatedDate"].Text);
-
 
             }
             string script = "function f(){Open('" + updatePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";

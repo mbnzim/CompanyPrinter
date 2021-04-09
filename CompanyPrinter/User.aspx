@@ -63,7 +63,7 @@
               <div class="creatuser">
                 <telerik:RadButton ID="btnCreateuser" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
                  <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
-                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" /> 
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" /> 
                <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> 
                 <br />
               

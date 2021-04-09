@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="adddesignation_popup.aspx" />
     <Content Include="addprinter_pop.aspx" />
+    <Content Include="Delete_popup.aspx" />
     <Content Include="Designation.aspx" />
     <Content Include="Desinations.aspx" />
     <Content Include="Documents.aspx" />
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="addprinter_pop.aspx.designer.cs">
       <DependentUpon>addprinter_pop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_popup.aspx.cs">
+      <DependentUpon>Delete_popup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Delete_popup.aspx.designer.cs">
+      <DependentUpon>Delete_popup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Designation.aspx.cs">
       <DependentUpon>Designation.aspx</DependentUpon>

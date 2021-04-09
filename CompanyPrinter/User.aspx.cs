@@ -47,5 +47,10 @@ namespace CompanyPrinter
             string script = "function f(){Open('" + userupdatepopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+        
+        }
     }
 }
