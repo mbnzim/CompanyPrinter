@@ -89,6 +89,7 @@
                 <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>
                 <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
+                <telerik:RadButton ID="btnDocument" runat="server" Text="Documents" OnClick="document_Click"></telerik:RadButton>
                 
                 <br /><br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" 
@@ -143,11 +144,11 @@
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID], [LastModificationDate], [PrinterMakeID] FROM [Printers]"></asp:SqlDataSource>
         </div>
         </div> 
-            <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
+      <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
       <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False"></telerik:RadWindow>
      <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
-            <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
-  
+     <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+     <telerik:RadWindow ID="uploadDocPopup" runat="server" NavigateUrl="UploadDocument.aspx" VisibleStatusbar="False"></telerik:RadWindow>
         </div>     
        </telerik:RadAjaxPanel>      
    </div> 

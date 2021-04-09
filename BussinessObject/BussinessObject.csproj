@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Document.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="PrinterMake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

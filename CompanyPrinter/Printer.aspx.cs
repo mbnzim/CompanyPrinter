@@ -77,5 +77,11 @@ namespace CompanyPrinter
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
 
         }
+
+        protected void document_Click(object sender, EventArgs e)
+        {
+            string script = "function f(){Open('" + uploadDocPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
+        }
     }
 }

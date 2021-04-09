@@ -73,7 +73,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adddesignation_popup.aspx" />
+    <Content Include="adddesignation_popup.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="addprinter_pop.aspx" />
     <Content Include="Delete_popup.aspx" />
     <Content Include="Designation.aspx" />
@@ -88,6 +90,7 @@
     <Content Include="updatePrinterspopup.aspx" />
     <Content Include="UpdateUser.aspx" />
     <Content Include="updateuser_popup.aspx" />
+    <Content Include="UploadDocument.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
@@ -98,9 +101,11 @@
     <Compile Include="adddesignation_popup.aspx.cs">
       <DependentUpon>adddesignation_popup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="adddesignation_popup.aspx.designer.cs">
       <DependentUpon>adddesignation_popup.aspx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="addprinter_pop.aspx.cs">
       <DependentUpon>addprinter_pop.aspx</DependentUpon>
@@ -187,6 +192,13 @@
     <Compile Include="updateuser_popup.aspx.designer.cs">
       <DependentUpon>updateuser_popup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UploadDocument.aspx.cs">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadDocument.aspx.designer.cs">
+      <DependentUpon>UploadDocument.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +247,9 @@
       <Project>{aa3f359a-c91d-4b95-a072-a86025b50a20}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

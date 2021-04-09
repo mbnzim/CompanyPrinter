@@ -229,5 +229,28 @@ namespace DataAccess
             }
         }
 
+        //================================Documents=========================================
+        public int UplaodDocs(Document docs)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("dbo.UploadDoc", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@printerID", docs.printerID);
+                cmd.Parameters.AddWithValue("@userID", docs.userID);
+                cmd.Parameters.AddWithValue("@DocType", docs.DocType);
+                cmd.Parameters.AddWithValue("@DocUrl", docs.DocUrl);
+                cmd.Parameters.AddWithValue("@CreatedDate", docs.CreatedDate);
+                con.Open();
+                int Result = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                return Result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
