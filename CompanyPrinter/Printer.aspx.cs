@@ -21,6 +21,22 @@ namespace CompanyPrinter
             if (!IsPostBack)
             {
                 txtusername.Text = (string)Session["User"];
+                //DataTable dtPrinter = new DataTable();
+                //dtPrinter.Columns.Add("PrinterName");
+                //dtPrinter.Columns.Add("FolderToMonitor");
+                //dtPrinter.Columns.Add("OutputType");
+                //dtPrinter.Columns.Add("FileOutput");
+                //dtPrinter.Columns.Add("Active");
+                //Session["dbPrinter"] = dtPrinter;
+
+                //DataTable dtPrinterIds = new DataTable();
+                //dtPrinterIds.Columns.Add("EngenPrintersID");
+                //Session["EngenPrintersID"] = dtPrinterIds;
+
+                //RadGrid1.DataSourceID = "SqlDataSource1";
+                //RadGrid1.DataBind();
+
+
             }
            
 
@@ -41,19 +57,27 @@ namespace CompanyPrinter
 
         protected void deletePrinter_Click(object sender, EventArgs e)
         {
-           // Print printer = new List<Printer>();
-            List<string> printers = new List<string>();
+            DataTable dtPrinter = new DataTable();
+            dtPrinter.Columns.Add("PrinterName");
+            dtPrinter.Columns.Add("FolderToMonitor");
+            dtPrinter.Columns.Add("OutputType");
+            dtPrinter.Columns.Add("FileOutput");
+            dtPrinter.Columns.Add("Active");
+            //Session["dbPrinter"] = dtPrinter;
 
+            DataTable dtPrinterIds = new DataTable();
+            dtPrinterIds.Columns.Add("EngenPrintersID");
+           
 
-            foreach (GridDataItem item in RadGrid1.SelectedItems)
+            if(RadGrid1.SelectedItems.Count > 0)
             {
-                printers.Add(item["PrinterName"].Text.ToString());
-                
-            }
-   
-            foreach (var p in printers)
-            {
-                Session["PrinterNameDelete"] += p + " <br />";
+                foreach (GridDataItem printer in RadGrid1.SelectedItems)
+                {
+                    dtPrinterIds.Rows.Add(Convert.ToInt32(printer["EngenPrintersID"].Text.ToString()));
+                    dtPrinter.Rows.Add(printer["PrinterName"].Text.ToString(), printer["FolderToMonitor"].Text.ToString(), printer["OutputType"].Text.ToString(), printer["FileOutput"].Text.ToString(), printer["Active"].Text);
+                }
+                Session["EngenPrintersID"] = dtPrinterIds;
+                Session["dbPrinter"] = dtPrinter;
             }
 
             string script = "function f(){Open('" + deletePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
@@ -86,6 +110,11 @@ namespace CompanyPrinter
            }
             string script = "function f(){Open('" + uploadDocPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
+        }
+
+        protected void Clear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

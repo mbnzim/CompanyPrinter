@@ -8,6 +8,7 @@ namespace BussinessObject
 {
     public class Printer
     {
+        public int PrinterID { get; set; }
         public string PrinterName { get; set; } 
         public string FolderToMonitor { get; set; }
         public string OutputType { get; set; }

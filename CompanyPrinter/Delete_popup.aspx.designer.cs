@@ -42,13 +42,13 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadLabel txtprinter;
 
         /// <summary>
-        /// lbprintername control.
+        /// rdDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadLabel lbprintername;
+        protected global::Telerik.Web.UI.RadGrid rdDelete;
 
         /// <summary>
         /// btnDeletePrinter control.

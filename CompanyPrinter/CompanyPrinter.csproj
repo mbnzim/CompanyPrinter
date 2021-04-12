@@ -66,6 +66,9 @@
     <Reference Include="Telerik.Web.UI">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for ASP.NET AJAX R1 2021\Bin45\Telerik.Web.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for ASP.NET AJAX R1 2021\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -78,7 +81,6 @@
     </Content>
     <Content Include="addprinter_pop.aspx" />
     <Content Include="Delete_popup.aspx" />
-    <Content Include="Designation.aspx" />
     <Content Include="Desinations.aspx" />
     <Content Include="Documents.aspx" />
     <Content Include="Images\delete.png" />
@@ -92,7 +94,6 @@
     <Content Include="updateuser_popup.aspx" />
     <Content Include="UploadDocument.aspx" />
     <Content Include="User.aspx" />
-    <Content Include="Users.aspx" />
     <Content Include="Web.config" />
     <Content Include="CreateUser.aspx" />
     <Content Include="WebForm2.aspx" />
@@ -120,13 +121,6 @@
     </Compile>
     <Compile Include="Delete_popup.aspx.designer.cs">
       <DependentUpon>Delete_popup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Designation.aspx.cs">
-      <DependentUpon>Designation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Designation.aspx.designer.cs">
-      <DependentUpon>Designation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Desinations.aspx.cs">
       <DependentUpon>Desinations.aspx</DependentUpon>
@@ -205,13 +199,6 @@
     </Compile>
     <Compile Include="User.aspx.designer.cs">
       <DependentUpon>User.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Users.aspx.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Users.aspx.designer.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>

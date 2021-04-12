@@ -12,9 +12,16 @@
                 eventArgs.set_enableAjax(false);
             }
         }
-     </script>
-     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+
+        //Refresh fuction
+        function refresh() {
+            var masterTable = $find("<%=RadGrid1.ClientID%>").get_masterTableView();
+            masterTable.rebind();
+        }
+    </script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <script src="popup.js"></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'  media="screen" />
 
     <style>
@@ -22,6 +29,20 @@
             margin-left:80%;
         }
     </style>
+
+    <script type="text/javascript" id="telerikClientEvents2">
+
+
+    function addPrinterPopup_Close(sender, args) {
+          refresh();
+    }
+
+	function updatePrinterPopup_Close(sender,args)
+    {
+        refresh();
+	}
+
+    </script>
 </asp:Content>
 
 
@@ -35,7 +56,7 @@
        </div>  
       
     <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
-        <script src="popup.js"></script>
+       
         <br/><br/>
         <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
         <div>
@@ -89,6 +110,7 @@
                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>
                 <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
                 <telerik:RadButton ID="btnDocument" runat="server" Text="Documents" OnClick="document_Click"></telerik:RadButton>
+                <telerik:RadButton ID="btnClear" runat="server" Text="Clear" OnClick="Clear_Click"></telerik:RadButton>
                 
                 <br /><br />
                   <telerik:RadGrid ID="RadGrid1" runat="server" 
@@ -121,32 +143,27 @@
                               <telerik:GridBoundColumn DataField="CreatedDate" DataType="System.DateTime" FilterControlAltText="Filter CreatedDate column" HeaderText="CreatedDate" SortExpression="CreatedDate" UniqueName="CreatedDate">
                               </telerik:GridBoundColumn>
                               
-                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" Text="Delete" UniqueName="DeleteColumn"/>--%>
-
-                               <telerik:GridBoundColumn DataField="EngenPrintersID" DataType="System.Int32" FilterControlAltText="Filter EngenPrintersID column" HeaderText="EngenPrintersID" SortExpression="EngenPrintersID" UniqueName="EngenPrintersID" ReadOnly="True" Display="False" >
+                               <telerik:GridBoundColumn DataField="EngenPrintersID" DataType="System.Int32" FilterControlAltText="Filter EngenPrintersID column" HeaderText="EngenPrintersID" SortExpression="EngenPrintersID" UniqueName="EngenPrintersID" ReadOnly="True" Display="false" >
                                </telerik:GridBoundColumn>
 
                                <telerik:GridBoundColumn DataField="LastModificationDate" DataType="System.DateTime" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate">
                                </telerik:GridBoundColumn>
 
-                              <%--<telerik:GridBoundColumn DataField="PrinterMakeID" DataType="System.Int32" FilterControlAltText="Filter PrinterMakeID column" HeaderText="Printer Make" SortExpression="PrinterMakeID" UniqueName="PrinterMakeID">
-                              </telerik:GridBoundColumn>--%>
-                              <%--   <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Add" FilterControlAltText="Filter addColumn column"  HeaderText="Document"
-                                  ImageUrl="Images/add.png" Text="add" UniqueName="addColumn" Resizable="false" ConfirmText="add record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>--%>
+                               <%--<telerik:GridBoundColumn DataField="PrinterMakeID" DataType="System.Int32" FilterControlAltText="Filter PrinterMakeID column" HeaderText="PrinterMakeID" SortExpression="PrinterMakeID" UniqueName="PrinterMakeID">
+                               </telerik:GridBoundColumn>--%>
+                              <%-- <telerik:GridCheckBoxColumn DataField="Status" DataType="System.Boolean" FilterControlAltText="Filter Status column" HeaderText="Status" SortExpression="Status" UniqueName="Status">
+                               </telerik:GridCheckBoxColumn>--%>
 
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID], [LastModificationDate], [PrinterMakeID] FROM [Printers]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [PrinterName], [FolderToMonitor], [OutputType], [FileOutput], [Active], [CreatedDate], [EngenPrintersID], [LastModificationDate], [PrinterMakeID], [Status] FROM [Printers] WHERE ([Status] = 1)"></asp:SqlDataSource>
         </div>
         </div> 
       <telerik:RadLabel ID="lbitemslist" runat="server"></telerik:RadLabel>
-      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False" Width="359px"></telerik:RadWindow>
-     <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False" Width="360px"></telerik:RadWindow>
-     <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False" Width="360px"></telerik:RadWindow>
+      <telerik:RadWindow ID="addPrinterPopup" runat="server" NavigateUrl="~/addprinter_pop.aspx" VisibleStatusbar="False" Width="359px" OnClientClose="addPrinterPopup_Close"></telerik:RadWindow>
+     <telerik:RadWindow ID="updatePrinterPopup" runat="server" NavigateUrl="~/updatePrinterspopup.aspx" VisibleStatusbar="False" Width="360px" OnClientClose="updatePrinterPopup_Close"></telerik:RadWindow>
+     <telerik:RadWindow ID="deletePrinterPopup" runat="server" NavigateUrl="Delete_popup.aspx" VisibleStatusbar="False" Width="666px"></telerik:RadWindow>
      <telerik:RadWindow ID="uploadDocPopup" runat="server" NavigateUrl="UploadDocument.aspx" VisibleStatusbar="False" Width="498px"></telerik:RadWindow>
         </div>     
        </telerik:RadAjaxPanel>      

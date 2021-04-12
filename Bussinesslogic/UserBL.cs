@@ -66,6 +66,18 @@ namespace Bussinesslogic
             }
         }
 
+        public void delePrinter(Printer printer)
+        {
+            try
+            {
+                UserDA userDA = new UserDA();
+                userDA.DeletePrinter(printer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public void SearchPrinters(RadGrid radGrid, int printermakeID, DateTime timefrom, DateTime timeto)
         {

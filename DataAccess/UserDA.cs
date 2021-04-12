@@ -117,20 +117,20 @@ namespace DataAccess
       
         }
 
-        public void deleteUser(String Username)
-        {
-            try
-            {
-                con.Open();
-                string deleteQuery = "delete from Users Where UserName='" + Username + "'";
-                SqlCommand cmd = new SqlCommand(deleteQuery, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public void deleteUser(String Username)
+        //{
+        //    try
+        //    {
+        //        con.Open();
+        //        string deleteQuery = "delete from Users Where UserName='" + Username + "'";
+        //        SqlCommand cmd = new SqlCommand(deleteQuery, con);
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
+        //    }catch(Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
      
 
 
@@ -151,23 +151,6 @@ namespace DataAccess
             {
                 throw ex;
             }
-        }
-
-        public void deleteDesignation(String designationName)
-        {
-            try
-            {
-                con.Open();
-                string deleteQuery = "delete from Designations Where DesignationName='" + designationName + "'";
-                SqlCommand cmd = new SqlCommand(deleteQuery, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-
         }
 
         //======================================================Printers==============================================
@@ -250,10 +233,11 @@ namespace DataAccess
         }
 
         //================================Documents=========================================
-        public int UplaodDocs(Document docs)
+        public void UplaodDocs(Document docs)
         {
             try
             {
+                con.Open();
                 SqlCommand cmd = new SqlCommand("dbo.UploadDoc", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@printerID", docs.printerID);
@@ -261,10 +245,30 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@DocType", docs.DocType);
                 cmd.Parameters.AddWithValue("@DocUrl", docs.DocUrl);
                 cmd.Parameters.AddWithValue("@CreatedDate", docs.CreatedDate);
-                con.Open();
+             
                 int Result = cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                return Result;
+                con.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeletePrinter(Printer printer)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("dbo.DeletePrinter", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@printerID", printer.PrinterID);
+                //cmd.Parameters.AddWithValue("@@status", printer.Status);
+
+                int Result = cmd.ExecuteNonQuery();
+                con.Close();
+
             }
             catch (Exception ex)
             {

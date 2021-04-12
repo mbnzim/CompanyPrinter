@@ -52,7 +52,8 @@ namespace CompanyPrinter
 
             UserDA userDA = new UserDA();
             userDA.UpdatePrinter(printer, printerId);
-            Page.Response.Redirect(Page.Request.Url.ToString(), true);
+            //Response.Write(ExtraFunctions.)
+            //Page.Response.Redirect(Page.Request.Url.ToString(), true);
         }
     }
 }
