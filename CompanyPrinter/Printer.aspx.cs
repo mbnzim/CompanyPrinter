@@ -14,6 +14,17 @@ using Telerik.Web.UI;
 
 namespace CompanyPrinter
 {
+    public static class MessageBox
+    {
+        public static void Show(Page Page, String Message)
+        {
+            Page.ClientScript.RegisterStartupScript(
+               Page.GetType(),
+               "MessageBox",
+               "<script language='javascript'>alert('" + Message + "');</script>"
+            );
+        }
+    }
     public partial class Printer : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -41,10 +52,49 @@ namespace CompanyPrinter
            
 
         }
+
+        //public void MsgBox(String ex, Page pg, Object obj)
+        //{
+        //    string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
+        //    Type cstype = obj.GetType();
+        //    ClientScriptManager cs = pg.ClientScript;
+        //    cs.RegisterClientScriptBlock(cstype, s, s.ToString());
+        //}
+
+        //public static void Show(string message)
+        //{
+        //    string cleanMessage = message.Replace("'", "\'");
+        //    Page page = HttpContext.Current.CurrentHandler as Page;
+        //    string script = string.Format("alert('{0}');", cleanMessage);
+        //    if (page != null && !page.ClientScript.IsClientScriptBlockRegistered("alert"))
+        //    {
+        //        page.ClientScript.RegisterClientScriptBlock(page.GetType(), "alert", script, true /* addScriptTags */);
+        //    }
+        //}
         protected void Search_Button(object sender, EventArgs e)
         {
-            UserBL userBL = new UserBL();
-            userBL.SearchPrinters(RadGrid1, Convert.ToInt32(txtprintermake.SelectedValue), (DateTime)timestapfrom.SelectedDate, (DateTime)timestapto.SelectedDate);
+            try
+            {
+                if((DateTime)timestapto.SelectedDate >= (DateTime)timestapfrom.SelectedDate )
+                {
+                  
+                        UserBL userBL = new UserBL();
+                        userBL.SearchPrinters(RadGrid1, Convert.ToInt32(txtprintermake.SelectedValue), (DateTime)timestapfrom.SelectedDate, (DateTime)timestapto.SelectedDate);
+                        lbsearchValidation.Visible = false;
+     
+                  
+                }
+                else
+                {
+                    lbsearchValidation.Visible =true;
+                }
+                       
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
  
@@ -114,7 +164,7 @@ namespace CompanyPrinter
 
         protected void Clear_Click(object sender, EventArgs e)
         {
-
+            ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
         }
     }
 }

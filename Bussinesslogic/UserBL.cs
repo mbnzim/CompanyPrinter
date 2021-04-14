@@ -11,6 +11,7 @@ namespace Bussinesslogic
 {
     public class UserBL
     {
+
         //===============================Users==============================
         public int UserRegistration(CreateUser reg)
         {
@@ -81,15 +82,11 @@ namespace Bussinesslogic
 
         public void SearchPrinters(RadGrid radGrid, int printermakeID, DateTime timefrom, DateTime timeto)
         {
-            try
-            {
-                UserDA userDA = new UserDA();
-                userDA.searchPrinters(radGrid, printermakeID, timefrom, timeto);             
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            
+          
+             UserDA userDA = new UserDA();
+             userDA.searchPrinters(radGrid, printermakeID, timefrom, timeto);             
+      
         }
 
 

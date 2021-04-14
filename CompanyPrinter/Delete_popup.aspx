@@ -21,6 +21,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <telerik:RadLabel ID="txtprinter" Text="Are you Sure you want to delete Printer(s)?" Font-Size="X-Large" runat="server"></telerik:RadLabel>
+            <br />
         <table>
             <tr>
                 <td>

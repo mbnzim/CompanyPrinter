@@ -28,7 +28,7 @@
  }
     .auto-style3 {
         margin-left: 200px;
-        width: 638px;
+        width: 744px;
     }
 
      .userloggedin{
@@ -66,7 +66,7 @@
                 <br /><br />
                </div>
 
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="722px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
                           <Selecting AllowRowSelect="True" />

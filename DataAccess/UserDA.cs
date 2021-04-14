@@ -39,7 +39,7 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -67,7 +67,7 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -99,7 +99,7 @@ namespace DataAccess
 
         public int searchUserIDLoggedIn(string username)
         {
-   
+
             try
             {
                 con.Open();
@@ -114,40 +114,23 @@ namespace DataAccess
             {
                 throw ex;
             }
-      
+
         }
 
-        //public void deleteUser(String Username)
-        //{
-        //    try
-        //    {
-        //        con.Open();
-        //        string deleteQuery = "delete from Users Where UserName='" + Username + "'";
-        //        SqlCommand cmd = new SqlCommand(deleteQuery, con);
-        //        cmd.ExecuteNonQuery();
-        //        con.Close();
-        //    }catch(Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-     
-
-
         //======================================================Designations==============================================
-        public int AddDesignation(Designation ObjDesignation) 
+        public int AddDesignation(Designation ObjDesignation)
         {
             try
             {
                 SqlCommand cmd = new SqlCommand("dbo.AddDesignation", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@designationName", ObjDesignation.DesignationName);     
+                cmd.Parameters.AddWithValue("@designationName", ObjDesignation.DesignationName);
                 con.Open();
                 int Result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 return Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -174,7 +157,7 @@ namespace DataAccess
                 cmd.Dispose();
                 return Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -198,14 +181,15 @@ namespace DataAccess
                 radGrid.DataBind();
                 con.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //Response.Write("<script>alert('Make sure all the input values are correct!');</script>");
             }
-
         }
 
-        public int UpdatePrinter(PrinterUpdate printer,int printid)
+
+
+        public int UpdatePrinter(PrinterUpdate printer, int printid)
         {
             try
             {
@@ -213,7 +197,7 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand("dbo.UpdatePrinters", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@PrintersID", printid);
-                cmd.Parameters.AddWithValue("@PrinterName",printer.PrinterName);
+                cmd.Parameters.AddWithValue("@PrinterName", printer.PrinterName);
                 cmd.Parameters.AddWithValue("@FolderToMonitor", printer.FolderToMonitor);
                 cmd.Parameters.AddWithValue("@OutputType", printer.OutputType);
                 cmd.Parameters.AddWithValue("@FileOutput", printer.FileOutput);
@@ -245,10 +229,10 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@DocType", docs.DocType);
                 cmd.Parameters.AddWithValue("@DocUrl", docs.DocUrl);
                 cmd.Parameters.AddWithValue("@CreatedDate", docs.CreatedDate);
-             
+
                 int Result = cmd.ExecuteNonQuery();
                 con.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -275,6 +259,6 @@ namespace DataAccess
                 throw ex;
             }
         }
-
     }
+    
 }
