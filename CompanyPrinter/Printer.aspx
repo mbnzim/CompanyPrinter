@@ -14,10 +14,18 @@
         }
 
         //Refresh fuction
-           function refresh() {
+   <%--     function refresh() {
             var masterTable = $find("<%=RadGrid1.ClientID%>").get_masterTableView();
             masterTable.rebind();
         }
+    <%--    function refreshGrid(arg) {
+            if (!arg) {
+                $find("<%= RadAjaxManager1.ClientID %>").ajaxRequest("Rebind");
+                }
+                else {
+                      $find("<%= RadAjaxManager1.ClientID %>").ajaxRequest("RebindAndNavigate");
+                  }
+              }--%>
     </script>
 
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
@@ -118,6 +126,8 @@
                             <telerik:RadLabel ID="lbDesignatationValidation" Text="- Please select Designation" runat="server" ForeColor="Red" Visible="False"></telerik:RadLabel>
                             </div>
                         
+                        <%--<input type = "button" id="btnShowLogin" value = "Add Printer" />--%>
+                        <%--<telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
                         <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
                         <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>
                         <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
@@ -126,7 +136,20 @@
 
                         <br />
                         <br />
-    
+                    <%--     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" OnAjaxRequest="RadAjaxManager1_AjaxRequest">
+                            <AjaxSettings>
+                                <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
+                                    <UpdatedControls>
+                                        <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="gridLoadingPanel"></telerik:AjaxUpdatedControl>
+                                    </UpdatedControls>
+                                </telerik:AjaxSetting>
+                                <telerik:AjaxSetting AjaxControlID="RadGrid1">
+                                    <UpdatedControls>
+                                        <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="gridLoadingPanel"></telerik:AjaxUpdatedControl>
+                                    </UpdatedControls>
+                                </telerik:AjaxSetting>
+                            </AjaxSettings>
+                        </telerik:RadAjaxManager>--%>
                         <telerik:RadGrid ID="RadGrid1" runat="server"
                             DataSourceID="SqlDataSource2" Width="1289px"
                             AllowPaging="True"

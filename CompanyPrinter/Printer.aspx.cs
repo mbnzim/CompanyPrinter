@@ -25,7 +25,11 @@ namespace CompanyPrinter
             );
         }
     }
-    public partial class Printer : System.Web.UI.Page
+
+
+//-------------------New Code--------------------
+
+public partial class Printer : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -87,8 +90,11 @@
     <Content Include="Images\add.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Map.js" />
     <Content Include="popup.js" />
     <Content Include="Printer.aspx" />
+    <Content Include="PrinterEdit.aspx" />
+    <Content Include="Printers.aspx" />
     <Content Include="updatePrinterspopup.aspx" />
     <Content Include="UpdateUser.aspx" />
     <Content Include="updateuser_popup.aspx" />
@@ -156,6 +162,20 @@
     </Compile>
     <Compile Include="Printer.aspx.designer.cs">
       <DependentUpon>Printer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterEdit.aspx.cs">
+      <DependentUpon>PrinterEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrinterEdit.aspx.designer.cs">
+      <DependentUpon>PrinterEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Printers.aspx.cs">
+      <DependentUpon>Printers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Printers.aspx.designer.cs">
+      <DependentUpon>Printers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CreateUser.aspx.cs">

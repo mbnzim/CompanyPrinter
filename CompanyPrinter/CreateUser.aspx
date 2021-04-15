@@ -31,9 +31,41 @@
             font-family: "Lato", sans-serif;
         }
     </style>
+   <%-- <script src="Map.js"></script>--%>
 </head>
 <body>
+     <script type='text/javascript'>
 
+         function loadMapScenario() {
+             var map;
+             map = Microsoft.Maps.Map('#myMap', {});
+             Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', {
+                 callback: onLoad,
+                 errorCallback: onError
+             });
+             function onLoad() {
+                 var options = { maxResults: 5 };
+                 var manager = new Microsoft.Maps.AutosuggestManager(options);
+                 manager.attachAutosuggest('#txtaddress', '#searchBoxContainer', selectedSuggestion);
+             }
+             function onError(message) {
+                 document.getElementById('printoutPanel').innerHTML = message;
+             }
+             function selectedSuggestion(suggestionResult) {
+                 document.getElementById('printoutPanel').innerHTML =
+                     'Suggestion: ' + suggestionResult.formattedSuggestion;
+                     //'<br> Lat: ' + suggestionResult.location.latitude +
+                     //'<br> Lon: ' + suggestionResult.location.longitude;
+                 map.entities.clear();
+                 //var push = new Microsoft.Maps.Pushpin(suggestionResult.location);
+                 //map.entities.push(push);
+                 map.setView({ bounds: suggestionResult.bestView });
+             }
+         }
+
+     </script>
+  
+     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AjwSRf95cl4Af4BJgEVNjx8mlfYrmfF0OdRQ1F1I8L5J9UXL9GALJN5G7PENgKlv&callback=loadMapScenario' async="async"></script>
 <form id="form1" runat="server" >
           <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
@@ -85,8 +117,11 @@
                         <telerik:RadLabel ID="RadLabel6" runat="server" Text="Address"></telerik:RadLabel>
                     </td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtaddress" Width="200px" runat="server"></asp:TextBox>
-                          <asp:Label ID="lbaddress" runat="server" Text="Address Required" ForeColor="Red" Visible="False"></asp:Label>
+                        <div id='searchBoxContainer'><asp:TextBox ID="txtaddress" Width="200px" runat="server"></asp:TextBox></div>
+                        <asp:Label ID="lbaddress" runat="server" Text="Address Required" ForeColor="Red" Visible="False"></asp:Label>
+                          <div id='printoutPanel'></div>
+        
+                        <div id='myMap' style='width: 350px; height: 300px;'></div>
                     </td>
                 </tr>
                  <tr>
