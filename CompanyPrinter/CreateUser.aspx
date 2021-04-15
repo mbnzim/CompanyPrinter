@@ -31,11 +31,10 @@
             font-family: "Lato", sans-serif;
         }
     </style>
-   <%-- <script src="Map.js"></script>--%>
+    <script src="Map.js"></script>
 </head>
 <body>
-     <script type='text/javascript'>
-
+<%--     <script type='text/javascript'>
          function loadMapScenario() {
              var map;
              map = Microsoft.Maps.Map('#myMap', {});
@@ -62,8 +61,7 @@
                  map.setView({ bounds: suggestionResult.bestView });
              }
          }
-
-     </script>
+     </script>--%>
   
      <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AjwSRf95cl4Af4BJgEVNjx8mlfYrmfF0OdRQ1F1I8L5J9UXL9GALJN5G7PENgKlv&callback=loadMapScenario' async="async"></script>
 <form id="form1" runat="server" >

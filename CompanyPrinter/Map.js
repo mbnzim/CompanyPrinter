@@ -23,3 +23,4 @@
         //map.entities.push(push);
         map.setView({ bounds: suggestionResult.bestView });
     }
+}

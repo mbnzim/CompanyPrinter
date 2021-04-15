@@ -14,7 +14,7 @@
         }
 
         //Refresh fuction
-   <%--     function refresh() {
+     function refresh() {
             var masterTable = $find("<%=RadGrid1.ClientID%>").get_masterTableView();
             masterTable.rebind();
         }
@@ -136,23 +136,10 @@
 
                         <br />
                         <br />
-                    <%--     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" OnAjaxRequest="RadAjaxManager1_AjaxRequest">
-                            <AjaxSettings>
-                                <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
-                                    <UpdatedControls>
-                                        <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="gridLoadingPanel"></telerik:AjaxUpdatedControl>
-                                    </UpdatedControls>
-                                </telerik:AjaxSetting>
-                                <telerik:AjaxSetting AjaxControlID="RadGrid1">
-                                    <UpdatedControls>
-                                        <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="gridLoadingPanel"></telerik:AjaxUpdatedControl>
-                                    </UpdatedControls>
-                                </telerik:AjaxSetting>
-                            </AjaxSettings>
-                        </telerik:RadAjaxManager>--%>
-                        <telerik:RadGrid ID="RadGrid1" runat="server"
+
+                        <telerik:RadGrid ID="RadGrid1" runat="server"  OnItemCommand="RadGrid1_ItemCommand"
                             DataSourceID="SqlDataSource2" Width="1289px"
-                            AllowPaging="True"
+                            AllowPaging="True"                    
                             AllowMultiRowSelection="True"
                             AllowFilteringByColumn="True"
                             CssClass="auto-style1">
@@ -186,14 +173,21 @@
                                     <telerik:GridBoundColumn DataField="LastModificationDate" DataType="System.DateTime" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate">
                                     </telerik:GridBoundColumn>
 
-                                    <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column" HeaderText="Edit"
-                                        ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
+<%--                                       <telerik:GridButtonColumn   ImageUrl="Images/edit.png"  ButtonType="PushButton"  CommandName="EditPrinter" HeaderStyle-Width="20%"
+                                        UniqueName="EditPrinters">
+                                            <HeaderStyle Width="20%" />
+                                        <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton" />
+                                    </telerik:GridButtonColumn>--%>
+
+
+                                    <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="EditPrinter" FilterControlAltText="Filter EditColumn column" HeaderText="Edit"
+                                        ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" >
                                         <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>                                    
                                         <ItemStyle CssClass="ButtonColumn" />
                                     </telerik:GridButtonColumn>
 
-                                    <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Upload" FilterControlAltText="Filter UploadColumn column" HeaderText="Upload Document"
-                                        ImageUrl="Images/add.png" Text="Upload" UniqueName="UploadColumn" Resizable="false" ConfirmText="Upload record?">
+                                    <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Upload" FilterControlAltText="Filter UploadColumn column" HeaderText="Document"
+                                        ImageUrl="Images/add.png" Text="Upload" UniqueName="UploadColumn" Resizable="false">
                                         <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
                                         <ItemStyle CssClass="ButtonColumn" />
                                     </telerik:GridButtonColumn>

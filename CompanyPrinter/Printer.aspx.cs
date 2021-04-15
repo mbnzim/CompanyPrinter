@@ -36,45 +36,48 @@ public partial class Printer : System.Web.UI.Page
             if (!IsPostBack)
             {
                 txtusername.Text = (string)Session["User"];
-                //DataTable dtPrinter = new DataTable();
-                //dtPrinter.Columns.Add("PrinterName");
-                //dtPrinter.Columns.Add("FolderToMonitor");
-                //dtPrinter.Columns.Add("OutputType");
-                //dtPrinter.Columns.Add("FileOutput");
-                //dtPrinter.Columns.Add("Active");
-                //Session["dbPrinter"] = dtPrinter;
 
-                //DataTable dtPrinterIds = new DataTable();
-                //dtPrinterIds.Columns.Add("EngenPrintersID");
-                //Session["EngenPrintersID"] = dtPrinterIds;
+            }
+        }
+        protected void RadGrid1_ItemCommand(object sender, GridCommandEventArgs e)
+        {
+            string commandName = e.CommandName;
 
-                //RadGrid1.DataSourceID = "SqlDataSource1";
-                //RadGrid1.DataBind();
+
+            if (e.CommandName == "EditPrinter")
+            {
+                string PrinterID = e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["EngenPrintersID"].ToString();
+                e.Item.Selected = true;
+
+                foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
+                {
+                    Session["EngenPrintersID"] = Convert.ToInt32(printerVal["EngenPrintersID"].Text);
+                    Session["PrinterName"] = Convert.ToString(printerVal["PrinterName"].Text);
+                    Session["FolderToMonitor"] = Convert.ToString(printerVal["FolderToMonitor"].Text);
+                    Session["OutputType"] = Convert.ToString(printerVal["OutputType"].Text);
+                    Session["FileOutput"] = Convert.ToString(printerVal["FileOutput"].Text);
+                    Session["CreatedDate"] = Convert.ToDateTime(printerVal["CreatedDate"].Text);
+
+                }
+                string script = "function f(){Open('" + updatePrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
 
 
             }
-           
+            else if (e.CommandName == "Upload")
+            {
+                string PrinterID = e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["EngenPrintersID"].ToString();
+                e.Item.Selected = true;
+                foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
+                {
+                    Session["PrintersID"] = Convert.ToInt32(printerVal["EngenPrintersID"].Text);
+                }
+                string script = "function f(){Open('" + uploadDocPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
 
+            }
         }
 
-        //public void MsgBox(String ex, Page pg, Object obj)
-        //{
-        //    string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
-        //    Type cstype = obj.GetType();
-        //    ClientScriptManager cs = pg.ClientScript;
-        //    cs.RegisterClientScriptBlock(cstype, s, s.ToString());
-        //}
-
-        //public static void Show(string message)
-        //{
-        //    string cleanMessage = message.Replace("'", "\'");
-        //    Page page = HttpContext.Current.CurrentHandler as Page;
-        //    string script = string.Format("alert('{0}');", cleanMessage);
-        //    if (page != null && !page.ClientScript.IsClientScriptBlockRegistered("alert"))
-        //    {
-        //        page.ClientScript.RegisterClientScriptBlock(page.GetType(), "alert", script, true /* addScriptTags */);
-        //    }
-        //}
         protected void Search_Button(object sender, EventArgs e)
         {
             try
