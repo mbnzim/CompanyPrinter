@@ -159,15 +159,6 @@ namespace CompanyPrinter
         protected global::Telerik.Web.UI.RadButton btnAddPrinter;
 
         /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnUpdate;
-
-        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -175,15 +166,6 @@ namespace CompanyPrinter
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnDelete;
-
-        /// <summary>
-        /// btnDocument control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton btnDocument;
 
         /// <summary>
         /// btnClear control.

@@ -116,6 +116,25 @@ namespace DataAccess
             }
 
         }
+        public int getUser(string username)
+        {
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("dbo.getID", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@username", username);
+            try
+            {
+                int a = (int)cmd.ExecuteScalar();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            con.Close();
+
+        }
 
         //======================================================Designations==============================================
         public int AddDesignation(Designation ObjDesignation)

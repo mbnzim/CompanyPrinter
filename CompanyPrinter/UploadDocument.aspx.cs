@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinessObject;
 using DataAccess;
+using Bussinesslogic;
 
 namespace CompanyPrinter
 {
@@ -23,14 +24,13 @@ namespace CompanyPrinter
             {
                 foreach(Telerik.Web.UI.UploadedFile doc in RadUpload1.UploadedFiles)
                 {
+                    UserBL userBL = new UserBL();
                     Document document = new Document();
                     document.DocType = doc.GetExtension().ToString();
                     document.DocUrl = @"\\Files\" + doc.FileName.ToString();
-                    document.userID = 1;
+                    document.userID = Convert.ToInt32(Session["UserLoginId"]);
                     document.printerID = Convert.ToInt32(Session["PrintersID"]);
-                    document.CreatedDate = DateTime.Now;
-
-                   
+                    document.CreatedDate = DateTime.Now;                 
                     userDA.UplaodDocs(document);
                 }
             }

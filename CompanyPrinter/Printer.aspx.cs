@@ -171,7 +171,8 @@ public partial class Printer : System.Web.UI.Page
 
         protected void Clear_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
+            RadGrid1.DataSourceID = "SqlDataSource2";
+           // ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
         }
     }
 }

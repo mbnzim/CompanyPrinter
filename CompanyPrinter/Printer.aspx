@@ -25,7 +25,14 @@
                 else {
                       $find("<%= RadAjaxManager1.ClientID %>").ajaxRequest("RebindAndNavigate");
                   }
-              }--%>
+              }--%>      
+
+        function clearFilterExpressions() {
+            var grid = $find("<%=RadGrid1.ClientID %>");
+            var masterTableView = grid.get_masterTableView();
+            masterTableView.clearFilter();
+        }
+
     </script>
 
     <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
@@ -129,10 +136,10 @@
                         <%--<input type = "button" id="btnShowLogin" value = "Add Printer" />--%>
                         <%--<telerik:RadButton id="btnShowLogin1" runat="server" Text="Add Printer"></telerik:RadButton>--%>
                         <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
-                        <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>
+                        <%--<telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>--%>
                         <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
-                        <telerik:RadButton ID="btnDocument" runat="server" Text="Documents" OnClick="document_Click"></telerik:RadButton>
-                        <telerik:RadButton ID="btnClear" runat="server" Text="Clear" OnClick="Clear_Click"></telerik:RadButton>
+                       <%-- <telerik:RadButton ID="btnDocument" runat="server" Text="Documents" OnClick="document_Click"></telerik:RadButton>--%>
+                        <telerik:RadButton ID="btnClear" runat="server" Text="Clear"  OnClick="Clear_Click"></telerik:RadButton>
 
                         <br />
                         <br />
@@ -173,11 +180,7 @@
                                     <telerik:GridBoundColumn DataField="LastModificationDate" DataType="System.DateTime" FilterControlAltText="Filter LastModificationDate column" HeaderText="LastModificationDate" SortExpression="LastModificationDate" UniqueName="LastModificationDate">
                                     </telerik:GridBoundColumn>
 
-<%--                                       <telerik:GridButtonColumn   ImageUrl="Images/edit.png"  ButtonType="PushButton"  CommandName="EditPrinter" HeaderStyle-Width="20%"
-                                        UniqueName="EditPrinters">
-                                            <HeaderStyle Width="20%" />
-                                        <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton" />
-                                    </telerik:GridButtonColumn>--%>
+                     
 
 
                                     <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="EditPrinter" FilterControlAltText="Filter EditColumn column" HeaderText="Edit"
