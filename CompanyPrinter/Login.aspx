@@ -64,7 +64,7 @@
                             <telerik:RadLabel ID="RadLabel2" runat="server" Text="Password"></telerik:RadLabel>                  
                     </td>
                     <td class="auto-style1">
-                        <asp:TextBox ID="txtpassword" Width="200px" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtpassword" Width="200px" runat="server"  TextMode="Password"></asp:TextBox >
                           <asp:Label ID="lbpassword" runat="server" Text="Last Name Required" ForeColor="Red" Visible="False"></asp:Label>
                     </td>
                 </tr>

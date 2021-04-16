@@ -24,10 +24,12 @@ namespace CompanyPrinter
             {
                 foreach(Telerik.Web.UI.UploadedFile doc in RadUpload1.UploadedFiles)
                 {
+                    byte[] docarray = new byte[doc.InputStream.Length];
+                    doc.InputStream.Read(docarray,0,docarray.Length);
                     UserBL userBL = new UserBL();
                     Document document = new Document();
                     document.DocType = doc.GetExtension().ToString();
-                    document.DocUrl = @"\\Files\" + doc.FileName.ToString();
+                    document.DocUrl = docarray;
                     document.userID = Convert.ToInt32(Session["UserLoginId"]);
                     document.printerID = Convert.ToInt32(Session["PrintersID"]);
                     document.CreatedDate = DateTime.Now;                 

@@ -138,7 +138,7 @@
                         <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Add Printer" OnClick="AddPrinter_Click"></telerik:RadButton>
                         <%--<telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="UpdatePrinter_Click"></telerik:RadButton>--%>
                         <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="deletePrinter_Click"></telerik:RadButton>
-                       <%-- <telerik:RadButton ID="btnDocument" runat="server" Text="Documents" OnClick="document_Click"></telerik:RadButton>--%>
+          
                         <telerik:RadButton ID="btnClear" runat="server" Text="Clear"  OnClick="Clear_Click"></telerik:RadButton>
 
                         <br />

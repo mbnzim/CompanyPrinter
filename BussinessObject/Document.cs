@@ -12,7 +12,7 @@ namespace BussinessObject
         public int printerID { get; set; }
         public int userID { get; set; }
         public string DocType { get; set; }
-        public string DocUrl { get; set; }
+        public byte[] DocUrl { get; set; }
         public DateTime CreatedDate { get; set; }
 
 
