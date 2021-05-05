@@ -88,7 +88,6 @@ public partial class Printer : System.Web.UI.Page
                         UserBL userBL = new UserBL();
                         userBL.SearchPrinters(RadGrid1, Convert.ToInt32(txtprintermake.SelectedValue), (DateTime)timestapfrom.SelectedDate, (DateTime)timestapto.SelectedDate);
                         lbsearchValidation.Visible = false;
-     
                   
                 }
                 else
@@ -174,10 +173,10 @@ public partial class Printer : System.Web.UI.Page
 
         //}
 
-        //protected void Clear_Click(object sender, EventArgs e)
-        //{
-        //    RadGrid1.DataSourceID = "SqlDataSource2";
-        //   // ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
-        //}
+        protected void ClearPrinter_Click(object sender, EventArgs e)
+        {
+            RadGrid1.DataSourceID = "SqlDataSource2";
+            // ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
+        }
     }
 }

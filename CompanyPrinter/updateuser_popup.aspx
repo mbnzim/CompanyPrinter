@@ -91,7 +91,7 @@
                 <tr>
                 <td></td>
                 <td>
-                    <telerik:RadButton ID="btnAddSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="auto-style1"></telerik:RadButton>
+                    <telerik:RadButton ID="btnAddSave" runat="server" Text="Save" OnClick="btnSave_Click" CssClass="auto-style1" Skin="Sunset"></telerik:RadButton>
                 </td>
             </tr>
 

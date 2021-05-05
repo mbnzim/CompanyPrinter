@@ -25,13 +25,13 @@
         <table>
             <tr>
                 <td>
-                    <telerik:RadGrid ID="rdDelete" runat="server"></telerik:RadGrid>
+                    <telerik:RadGrid ID="rdDelete" runat="server" Skin="Sunset"></telerik:RadGrid>
                 </td>         
             </tr>            
                  <tr>
            
                 <td class="auto-style2">
-                    <telerik:RadButton ID="btnDeletePrinter" runat="server" Text="Delete" OnClick="btnDeletePrinter_Click" CssClass="auto-style1"></telerik:RadButton>
+                    <telerik:RadButton ID="btnDeletePrinter" runat="server" Text="Delete" OnClick="btnDeletePrinter_Click" CssClass="auto-style1" Skin="Sunset"></telerik:RadButton>
                 </td>
             </tr>
 

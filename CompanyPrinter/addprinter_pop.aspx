@@ -62,7 +62,7 @@
                     <telerik:RadLabel ID="RadLabel4" Text="Printer Make" runat="server"></telerik:RadLabel>
                 </td>
                 <td>
-                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMakeName" DataValueField="PrinterMakeID"></telerik:RadComboBox>
+                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMakeName" DataValueField="PrinterMakeID" Skin="Sunset"></telerik:RadComboBox>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
                 </td>
             </tr>
@@ -76,7 +76,7 @@
                  <tr>
                 <td class="auto-style1"></td>
                 <td class="auto-style1">
-                    <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Save" OnClick="btnAddPrinter_Click" CssClass="auto-style2"></telerik:RadButton>
+                    <telerik:RadButton ID="btnAddPrinter" runat="server" Text="Save" OnClick="btnAddPrinter_Click" CssClass="auto-style2" Skin="Sunset"></telerik:RadButton>
                 </td>
             </tr>
 

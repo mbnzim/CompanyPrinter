@@ -14,14 +14,14 @@ namespace CompanyPrinter
             lbtxtusername.Text = (string)Session["User"];
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
+        //protected void btnUpdate_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
+        //protected void btnDelete_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
     }
 }

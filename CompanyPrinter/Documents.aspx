@@ -49,24 +49,24 @@
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Documents" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>
        
-    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
+    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted" Width="100%">
       
       
        
         <br /><br> <br /><br>    
-        <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
-        <div>
+    <%--    <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">--%>
+        
    
 
-            <div class="auto-style3">
+            <%--<div class="auto-style3">--%>
                   <div class="creatuser">
-                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
-                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" /> 
+               <%--  <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" /> --%>
            <%--    <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> --%>
                 <br /><br />
                </div>
 
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="722px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="100%"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1" Skin="Sunset">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
                           <Selecting AllowRowSelect="True" />
@@ -94,9 +94,9 @@
                       </MasterTableView>
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [DocType], [DocUrl], [CreatedDate] FROM [Documents]"></asp:SqlDataSource>
-        </div>
-       </div>
-    </div>   
+    
+    <%--   </div>--%>
+    <%--</div>  --%> 
        </telerik:RadAjaxPanel>
 
    </div> 

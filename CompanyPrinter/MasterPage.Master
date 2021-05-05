@@ -13,7 +13,7 @@
    body {
      margin:0;
       font-family: "Lato", sans-serif;
-/*       background-color:#CFD8DC;*/
+       background-color:#f5f5f5;
     }
 
     .sidebar {

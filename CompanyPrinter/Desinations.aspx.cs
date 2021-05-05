@@ -21,14 +21,14 @@ namespace CompanyPrinter
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
         }
 
-        protected void Update_Click(object sender, EventArgs e)
-        {
+        //protected void Update_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
 
-        protected void Delete_Click(object sender, EventArgs e)
-        {
+        //protected void Delete_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
     }
 }

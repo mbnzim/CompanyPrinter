@@ -36,7 +36,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div>
          <div class="userloggedin">
            <asp:Label ID="lbtxtusername" runat="server" Font-Size="X-Large" Text="username"></asp:Label>
        </div>
@@ -44,30 +43,33 @@
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Users" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>
        
-    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
+    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted" Width="100%">
       
       
        
         <br /><br> 
-        <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
-        <div>
-           
+      <%--  <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">--%>
+                 
             <br /><br><br /><br>
-            <div class="container">
+            <%--<div class="container">--%>
              <div class="search">
-                  <telerik:RadButton ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click"></telerik:RadButton>
+                  <telerik:RadButton ID="btnsearch" runat="server" Text="Search" OnClick="btnsearch_Click" Skin="Sunset"></telerik:RadButton>
                  <telerik:RadTextBox ID="txtusername"  runat="server" DisplayText="Username"></telerik:RadTextBox>           
-             </div>
+             <%--</div>--%>
+                <%--</div>--%>
                  <br />
+
+                
               <div class="creatuser">
-                <telerik:RadButton ID="btnCreateuser" runat="server" Text="Created User" OnClick="RadButton1_Click"/> 
-                 <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" /> 
-                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" /> 
-               <telerik:RadButton ID="btnClear" runat="server" Text="Clear" /> 
+                  <br />
+                <telerik:RadButton ID="btnCreateuser" runat="server" Text="Created User" OnClick="RadButton1_Click" Skin="Sunset"/> 
+               <%--  <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" Skin="Sunset" /> 
+                <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" Skin="Sunset" /> --%>
+               <telerik:RadButton ID="btnClear" runat="server" Text="Clear" Skin="Sunset" /> 
                 <br />
-              
+              </div>  
               </div><br />
-                  <telerik:RadGrid ID="userRd" runat="server" DataSourceID="SqlDataSource2" Width="1016px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+                  <telerik:RadGrid ID="userRd" runat="server" DataSourceID="SqlDataSource2" Width="100%"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1" Skin="Sunset">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ExportSettings>
                           <Pdf PageWidth="">
@@ -121,11 +123,11 @@
                       </MasterTableView>
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [LastName], [FirstName], [Email], [UserName], [Address], [DOB], [CreatedDate], [Password], [LastModificationDate], [DesignationID] FROM [Users]"></asp:SqlDataSource>
-        </div>
-       </div>
-    </div>   
+        
+       
+     
          </telerik:RadAjaxPanel>
-       <telerik:RadWindow ID="userupdatepopup" runat="server" NavigateUrl="updateuser_popup.aspx" VisibleStatusbar="False" Height="334px" Width="318px"></telerik:RadWindow>
-   </div> 
+       <telerik:RadWindow ID="userupdatepopup" runat="server" NavigateUrl="updateuser_popup.aspx" VisibleStatusbar="False" Height="334px" Width="318px" Skin="Sunset"></telerik:RadWindow>
+
 </asp:Content>
 

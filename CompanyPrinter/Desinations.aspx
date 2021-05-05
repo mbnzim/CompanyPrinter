@@ -24,14 +24,17 @@
  .creatuser{
      margin-left:0;
  }
-    .auto-style3 {
-        margin-left: 200px;
-        width: 500px;
-    }
-
+    
   .userloggedin{
      margin-left:80%;
   }
+  
+    .auto-style4 {
+        left: 0px;
+        top: -14px;
+        height: 61px;
+        width: 149px;
+    }
   
 </style>
 </asp:Content>
@@ -49,23 +52,24 @@
             <telerik:RadLabel ID="RadLabel1" runat="server" Text="Designations" Font-Size="X-Large" Font-Bold="true"></telerik:RadLabel>
        </div>
        
-    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted">
+    <telerik:RadAjaxPanel ID="radAjxPanelMain" runat="server" LoadingPanelID="rad1" ClientEvents-OnRequestStart="mngRequestStarted" Width="100%">
       
       
        
        <br /><br><br /><br>
-        <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">
-        <div>
+    <%--    <div style="margin-top:0; padding-left: 0; padding-right: 50px; overflow: auto;">--%>
+        
    
-            <div class="auto-style3">
+            <%--<div class="auto-style3">--%>
                  <div class="creatuser">
             <%--<telerik:RadButton ID="btnAdd" runat="server" Text="Add Designation" OnClick="Add_Click"/> </div><br />
             <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="Update_Click"/> </div><br />--%>
-            <telerik:RadButton ID="btnAdd" runat="server" Text="Add Designation" OnClick="Add_Click"/>
-             <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="Update_Click"/>
-              <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="Delete_Click"/>
-                 </div><br />
-                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="487px"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1">
+            <telerik:RadButton ID="btnAdd" runat="server" Text="Add Designation" OnClick="Add_Click"  Skin="Sunset"/>
+            <%-- <telerik:RadButton ID="btnUpdate" runat="server" Text="Update" OnClick="Update_Click"/>
+              <telerik:RadButton ID="btnDelete" runat="server" Text="Delete" OnClick="Delete_Click"/>--%>
+                 </div>
+            <br />
+                  <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="SqlDataSource2" Width="100%"  AllowPaging="True" AllowMultiRowSelection="True" AllowFilteringByColumn= "True" CssClass="auto-style1" Skin="Sunset">
                       <GroupingSettings CollapseAllTooltip="Collapse all groups" />
                       <ClientSettings Selecting-AllowRowSelect="true">
                           <Selecting AllowRowSelect="True" />
@@ -74,28 +78,23 @@
                           <Columns>
                               <telerik:GridBoundColumn DataField="DesignationName" FilterControlAltText="Filter DesignationName column" HeaderText="DesignationName" SortExpression="DesignationName" UniqueName="DesignationName">
                               </telerik:GridBoundColumn>
-                       <%--         <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Edit" FilterControlAltText="Filter EditColumn column"  HeaderText="Edit"
-                                  ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" ConfirmText="Edit record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn> --%>
+                               <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="EditPrinter" FilterControlAltText="Filter EditColumn column" HeaderText="Edit" ImageUrl="Images/edit.png" Text="Edit" UniqueName="EditColumn" Resizable="false" >
+                                        <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>                            
+                                        <ItemStyle CssClass="ButtonColumn" />
+                                    </telerik:GridButtonColumn>
 
-                                <%--<telerik:GridButtonColumn ButtonType="ImageButton" CommandName="Delete" FilterControlAltText="Filter DeleteColumn column"  HeaderText="Delete"
-                                  ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" ConfirmText="Delete record?">
-                                  <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>
-                                  <ItemStyle CssClass="ButtonColumn" />
-                              </telerik:GridButtonColumn>--%>
-
-                 
+                                <telerik:GridButtonColumn ButtonType="ImageButton" CommandName="DeletePrinter" FilterControlAltText="Filter DeleteColumn column" HeaderText="Delete" ImageUrl="Images/delete.png" Text="Delete" UniqueName="DeleteColumn" Resizable="false" >
+                                        <HeaderStyle CssClass="rgHeader ButtonColumnHeader"></HeaderStyle>                            
+                                        <ItemStyle CssClass="ButtonColumn" />
+                                    </telerik:GridButtonColumn>        
                           </Columns>
                       </MasterTableView>
             </telerik:RadGrid>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT [DesignationName] FROM [Designations]"></asp:SqlDataSource>
-        </div>
-       </div>
-    </div>  
-    <telerik:RadWindow ID="adddesignationpopup" runat="server" NavigateUrl="adddesignation_popup.aspx" VisibleStatusbar="False"></telerik:RadWindow>
+       <%-- </div>--%>
+
+   <%-- </div> --%> 
+    <telerik:RadWindow ID="adddesignationpopup" runat="server" NavigateUrl="adddesignation_popup.aspx" VisibleStatusbar="False" Skin="Sunset"></telerik:RadWindow>
         </telerik:RadAjaxPanel>
-   </div> 
 </asp:Content>
 

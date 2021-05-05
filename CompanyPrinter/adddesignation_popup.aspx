@@ -25,7 +25,7 @@
                  <tr>
                 <td></td>
                 <td>
-                    <telerik:RadButton ID="btnAddDesignation" runat="server" Text="Save" OnClick="btnAddDesignation_Click"></telerik:RadButton>
+                    <telerik:RadButton ID="btnAddDesignation" runat="server" Text="Save" OnClick="btnAddDesignation_Click" Skin="Sunset"></telerik:RadButton>
                 </td>
             </tr>
 
