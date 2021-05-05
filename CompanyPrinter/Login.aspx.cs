@@ -40,9 +40,7 @@ namespace CompanyPrinter
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Username or Password is incorrect')", true);
 
             }
-            con.Close();
-
-           
+            con.Close();      
         }
     }
 }

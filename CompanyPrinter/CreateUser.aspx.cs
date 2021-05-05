@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Net.Mail;
 
 namespace CompanyPrinter
 {
@@ -69,6 +70,28 @@ namespace CompanyPrinter
                
                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User has been created successfully')", true);
             }
+            //Send Email
+            MailMessage Msg = new MailMessage();
+            Msg.From = new MailAddress("companyprintez@gmail.com", "Admin");// Sender details here, replace with valid value
+            Msg.Subject = ("New Registration"); // subject of email
+            Msg.To.Add(reg.Email); //Add Email id, to which we will send email
+            Msg.Body = ("Dear" + reg.FirstName + '\n' + "You have been registered on the Company Printers employee system.Your login details are as follows:" + '\n' + '\n' + "Username" + reg.UserName + '\n' + reg.Password + '\n' + '\n' + "Kind Regards" + '\n' + "Admin");
+            Msg.IsBodyHtml = true;
+            Msg.Priority = MailPriority.High;
+
+
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.UseDefaultCredentials = false; // to get rid of error "SMTP server requires a secure connection"
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("mbnzim@gmail.com", "MrFeather123456");// replace with valid value
+            smtp.EnableSsl = true;
+            smtp.Timeout = 20000;
+
+
+
+            //smtp.Send(Msg);
         }
 
     }

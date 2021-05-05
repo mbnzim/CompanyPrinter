@@ -11,7 +11,9 @@
         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
-            <telerik:RadLabel ID="RadLabel5" Text="Update Printer" runat="server"></telerik:RadLabel>
+            <telerik:RadLabel ID="RadLabel5" Text="Update Printer" Font-Size="Larger" runat="server" Font-Bold="True"></telerik:RadLabel>
+        <fieldset class="rdfFieldset rdfBorders">
+
         <table>
             <tr>
                 <td>
@@ -50,7 +52,7 @@
                     <telerik:RadLabel ID="RadLabel4" Text="Printer Make" runat="server"></telerik:RadLabel>
                 </td>
                 <td>
-                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMake" DataValueField="PrinterMakeID" EmptyMessage="Select Printer Make"></telerik:RadComboBox>
+                    <telerik:RadComboBox ID="cbprintermake1" runat="server" DataSourceID="SqlDataSource1" DataTextField="PrinterMakeName" DataValueField="PrinterMakeID" EmptyMessage="Select Printer Make"></telerik:RadComboBox>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CompanyPrinterDB %>" SelectCommand="SELECT * FROM [PrinterMake]"></asp:SqlDataSource>
                 </td>
             </tr>
@@ -69,6 +71,7 @@
             </tr>
 
         </table>
+       </fieldset>
         </div>
         </div>
     </form>

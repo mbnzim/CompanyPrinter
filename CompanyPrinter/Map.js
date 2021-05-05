@@ -14,8 +14,8 @@
         document.getElementById('printoutPanel').innerHTML = message;
     }
     function selectedSuggestion(suggestionResult) {
-        document.getElementById('printoutPanel').innerHTML =
-            'Suggestion: ' + suggestionResult.formattedSuggestion;
+        //document.getElementById('printoutPanel').innerHTML =
+        //    'Suggestion: ' + suggestionResult.formattedSuggestion;
         //'<br> Lat: ' + suggestionResult.location.latitude +
         //'<br> Lon: ' + suggestionResult.location.longitude;
         map.entities.clear();

@@ -124,7 +124,7 @@
     <form id="form1" runat="server">
         <telerik:RadScriptManager ID="RadScriptManager1" runat="server"></telerik:RadScriptManager>
      
-        <telerik:RadMenu ID="RadMenu1" runat="server" CssClass="auto-style2" DataNavigateUrlField="menuNavigation" DataSourceID="SqlDataSource1" DataTextField="menuItem">
+        <telerik:RadMenu ID="RadMenu1" runat="server" CssClass="auto-style2" DataNavigateUrlField="menuNavigation" DataSourceID="SqlDataSource1" DataTextField="menuItem" Skin="Sunset">
             <Items>
                 <telerik:RadMenuItem runat="server" Text="Printers" NavigateUrl="~/Printer.aspx">
                </telerik:RadMenuItem>

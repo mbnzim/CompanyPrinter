@@ -267,7 +267,6 @@ namespace DataAccess
                 SqlCommand cmd = new SqlCommand("dbo.DeletePrinter", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@printerID", printer.PrinterID);
-                //cmd.Parameters.AddWithValue("@@status", printer.Status);
 
                 int Result = cmd.ExecuteNonQuery();
                 con.Close();
