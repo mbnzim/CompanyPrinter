@@ -52,6 +52,20 @@ namespace Bussinesslogic
                 throw ex;
             }
         }
+
+        //get user name from id
+        public string getUsername(int UserId)
+        {
+            try
+            {
+                UserDA userDA = new UserDA();
+                return userDA.getUserName(UserId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //===============================Designations========================
         public int SaveDesignation(Designation designation)
         {

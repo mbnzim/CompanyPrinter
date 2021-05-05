@@ -104,7 +104,7 @@ public partial class Printer : System.Web.UI.Page
         }
 
  
-
+        //Adding Printer
         protected void AddPrinter_Click(object sender, EventArgs e)
         {
             string script = "function f(){Open('" + addPrinterPopup.ClientID + "'); Sys.Application.remove_load(f);}Sys.Application.add_load(f);";
@@ -141,6 +141,7 @@ public partial class Printer : System.Web.UI.Page
    
         }
 
+        //Update Printer
         protected void UpdatePrinter_Click(object sender, EventArgs e)
         {
             foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
@@ -158,6 +159,7 @@ public partial class Printer : System.Web.UI.Page
 
         }
 
+        //upload documents
         protected void document_Click(object sender, EventArgs e)
         {
             foreach (GridDataItem printerVal in RadGrid1.SelectedItems)
@@ -168,15 +170,9 @@ public partial class Printer : System.Web.UI.Page
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "key", script, true);
         }
 
-        //protected void btnClear1_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
         protected void ClearPrinter_Click(object sender, EventArgs e)
         {
             RadGrid1.DataSourceID = "SqlDataSource2";
-            // ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertme", true);
         }
     }
 }

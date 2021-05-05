@@ -20,13 +20,13 @@
             width: 522px;
         }
         .nav{
-            background-color:#263238;
+            background-color:#dc443c;
             height:50px;
             color:white;
             text-align:center
         }
         body{
-            background-color:#CFD8DC;
+            background-color:#f5f5f5;
             font-family: "Lato", sans-serif;
         }
     </style>

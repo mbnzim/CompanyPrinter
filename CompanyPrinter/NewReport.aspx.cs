@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Bussinesslogic;
 
 namespace CompanyPrinter
 {
@@ -12,10 +13,15 @@ namespace CompanyPrinter
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserBL userBL = new UserBL();
+
+            
             ReportDocument Report = new ReportDocument();
-            Report.Load(Server.MapPath("~/UserProfile02.rpt"));
-          //  Report.SetDatabaseLogon("sa", "sa123", "Rakesh-PC", "RakeshData");
+            
+            Report.Load(Server.MapPath("~/UserProfiles.rpt"));
+            Report.SetParameterValue("@username", (string)Session["useridsession"]);
             CrystalReportViewer1.ReportSource = Report;
+            CrystalReportViewer1.DataBind();
         }
     }
 }

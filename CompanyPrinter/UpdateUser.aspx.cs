@@ -43,6 +43,7 @@ namespace CompanyPrinter
             reg.Address = txtaddress.Text;
             reg.DOB = datetime;
 
+
             Bussinesslogic.UserBL objUBL = new Bussinesslogic.UserBL();
             int result = objUBL.UserUpdate(reg.UserName, reg);
             if (result > 0)

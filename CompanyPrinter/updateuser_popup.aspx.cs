@@ -34,6 +34,7 @@ namespace CompanyPrinter
 
 
             CreateUser user = new CreateUser();
+            user.UserID = Convert.ToInt32(Session["Userid"].ToString());
             user.UserName = txtusername.Text;
             user.LastName = txtlastname.Text;
             user.FirstName = txtfirstname.Text;

@@ -21,6 +21,7 @@ namespace DataAccess
         {
             try
             {
+                int status = 1;
                 con.Open();
                 SqlCommand cmd = new SqlCommand("dbo.AddNewUser", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -31,6 +32,7 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@username", reg.UserName);
                 cmd.Parameters.AddWithValue("@password", reg.Password);
                 cmd.Parameters.AddWithValue("@address", reg.Address);
+                cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@dob", reg.DOB);
                 cmd.Parameters.AddWithValue("@createddate", reg.CreatedDate);
                 cmd.Parameters.AddWithValue("@LastModificationDate", reg.LastModificationDate);
@@ -49,9 +51,11 @@ namespace DataAccess
         {
             try
             {
+                int status = 1;
                 con.Open();
                 SqlCommand cmd = new SqlCommand("dbo.UpdateUser", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@userID", registration.UserID);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@lastname", registration.LastName);
                 cmd.Parameters.AddWithValue("@firstname", registration.FirstName);
@@ -59,6 +63,7 @@ namespace DataAccess
                 cmd.Parameters.AddWithValue("@email", registration.Email);
                 cmd.Parameters.AddWithValue("@password", registration.Password);
                 cmd.Parameters.AddWithValue("@address", registration.Address);
+                cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@dob", registration.DOB);
                 cmd.Parameters.AddWithValue("@createddate", registration.CreatedDate);
                 cmd.Parameters.AddWithValue("@LastModificationDate", registration.LastModificationDate);
@@ -136,6 +141,26 @@ namespace DataAccess
 
         }
 
+
+        public string getUserName(int UserId)
+        {
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("dbo.getUserNameFromID", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserID", UserId);
+            try
+            {
+                string a = (string)cmd.ExecuteScalar();
+                return a;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            con.Close();
+
+        }
         //======================================================Designations==============================================
         public int AddDesignation(Designation ObjDesignation)
         {
